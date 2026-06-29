@@ -11,20 +11,20 @@
 <script>document.documentElement.className+=' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <nav>
   <div class="wrap nav-inner">
-    <a href="index.html" class="brand"><span class="dot"></span>Misafir</a>
+    <a href="index.html" class="brand"><span class="mark">M</span>Misafir</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links">
       <a href="how-it-works.html" data-page="how-it-works.html">How it works</a>
-      <a href="index.html#capabilities" data-page="index.html">What it does</a>
+      <a href="index.html#features">Features</a>
       <a href="pricing.html" data-page="pricing.html">Pricing</a>
-      <a href="contact.html" class="btn">Book a pilot</a>
+      <a href="contact.html" class="btn">Book a pilot <span class="arr">→</span></a>
     </div>
   </div>
 </nav>
@@ -32,41 +32,25 @@
 <main>
 <header class="page-hero">
   <div class="wrap">
-    <div class="eyebrow reveal">Book a pilot</div>
-    <h1 class="reveal d1">Let's run a week on <em>one</em> of your venues.</h1>
-    <p class="reveal d2">Tell us a little about your place. We'll set Misafir up on a single venue and send you a week of real drafts and a brief — no contract, no risk, nothing published without your say-so.</p>
+    <span class="eyebrow"><span class="dot"></span>Book a pilot</span>
+    <h1 style="margin-top:18px">Run a week on <em>one</em> of your venues.</h1>
+    <p>Tell us a little about your place. We'll set Misafir up on a single venue and send you a week of real drafts and a brief — no contract, no risk, nothing published without your say-so.</p>
   </div>
 </header>
 
-<section style="padding-top:24px">
+<section style="padding:24px 0 100px">
   <div class="wrap">
     <div class="contact-cols">
-      <div class="reveal">
+      <div class="card-pad reveal">
         <form id="contact-form" novalidate>
           <div class="form-grid">
-            <div class="field">
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" placeholder="Alp Şişman" required />
+            <div class="field"><label>Your name</label><input id="name" name="name" type="text" placeholder="Alp Şişman" required /></div>
+            <div class="field"><label>Email</label><input id="email" name="email" type="email" placeholder="you@venue.com" required /></div>
+            <div class="field"><label>Venue or group</label><input id="venue" name="venue" type="text" placeholder="Gaia — Bazaar, Alaçatı, By the Sea" /></div>
+            <div class="field"><label>How many venues?</label>
+              <select id="venues" name="venues"><option>1 venue</option><option>2–3 venues</option><option>4–6 venues</option><option>7+ venues</option></select>
             </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@venue.com" required />
-            </div>
-            <div class="field">
-              <label for="venue">Venue or group</label>
-              <input id="venue" name="venue" type="text" placeholder="Gaia — Bazaar, Alaçatı, By the Sea" />
-            </div>
-            <div class="field">
-              <label for="venues">How many venues?</label>
-              <select id="venues" name="venues">
-                <option>1 venue</option>
-                <option>2–3 venues</option>
-                <option>4–6 venues</option>
-                <option>7+ venues</option>
-              </select>
-            </div>
-            <div class="field full">
-              <label for="tier">What are you most interested in?</label>
+            <div class="field full"><label>What are you most interested in?</label>
               <select id="tier" name="tier">
                 <option>Front Desk — reviews &amp; guest messages (the pilot)</option>
                 <option>Front of House — adds reservations &amp; social</option>
@@ -74,40 +58,20 @@
                 <option>Not sure yet — help me pick</option>
               </select>
             </div>
-            <div class="field full">
-              <label for="message">Anything we should know?</label>
-              <textarea id="message" name="message" placeholder="Which channels you run, the languages your guests write in, your booking system, or what's eating your time right now."></textarea>
-            </div>
+            <div class="field full"><label>Anything we should know?</label><textarea id="message" name="message" placeholder="Which channels you run, the languages your guests write in, your booking system, or what's eating your time right now."></textarea></div>
           </div>
-          <div class="hero-cta" style="margin-top:24px">
-            <button type="submit" class="btn btn-lg">Send &amp; book a pilot <span class="arr">→</span></button>
-          </div>
+          <div class="hero-cta" style="margin-top:24px"><button type="submit" class="btn btn-lg">Send &amp; book a pilot <span class="arr">→</span></button></div>
           <p class="form-note">Press send and it reaches us directly — no email app, no waiting. We usually reply within a day.</p>
           <div id="form-status" class="form-status"></div>
         </form>
       </div>
 
-      <aside class="contact-aside reveal d1">
-        <div class="item">
-          <div class="k">How to reach us</div>
-          <div class="v">Use the form — it comes straight to us. One short reply and we'll line up your pilot.</div>
-        </div>
-        <div class="item">
-          <div class="k">What you'll get</div>
-          <div class="v">A week of real drafts and one weekly brief on a venue of your choice.</div>
-        </div>
-        <div class="item">
-          <div class="k">What it costs to try</div>
-          <div class="v">Nothing to find out. The pilot is how you decide.</div>
-        </div>
-        <div class="item">
-          <div class="k">Your guests' data</div>
-          <div class="v">Handled with GDPR &amp; KVKK in mind. We'll talk it through before we begin.</div>
-        </div>
-        <div class="item">
-          <div class="k">Status</div>
-          <div class="v"><span class="onboarding" style="margin-top:0"><span class="pulse"></span> Now onboarding our first venues</span></div>
-        </div>
+      <aside class="aside-card reveal d1">
+        <div class="item"><div class="k">How to reach us</div><div class="v">Use the form — it comes straight to us. One short reply and we'll line up your pilot.</div></div>
+        <div class="item"><div class="k">What you'll get</div><div class="v">A week of real drafts and one weekly brief on a venue of your choice.</div></div>
+        <div class="item"><div class="k">What it costs to try</div><div class="v">Nothing to find out. The pilot is how you decide.</div></div>
+        <div class="item"><div class="k">Your guests' data</div><div class="v">Handled with GDPR &amp; KVKK in mind. We'll talk it through before we begin.</div></div>
+        <div class="item"><div class="k">Already signed up?</div><div class="v"><a href="onboarding.html" style="color:var(--brand-deep);font-weight:600">Start onboarding →</a></div></div>
       </aside>
     </div>
   </div>
@@ -118,29 +82,26 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="col foot-about">
-        <a href="index.html" class="brand"><span class="dot"></span>Misafir</a>
-        <p>An attentive front desk for every venue — reading, drafting, and briefing in every language your guests speak.</p>
+        <a href="index.html" class="brand"><span class="mark">M</span>Misafir</a>
+        <p>An attentive front desk for every venue — reading, drafting and briefing in every language your guests speak.</p>
       </div>
       <div class="col">
         <h4>Product</h4>
         <a href="how-it-works.html">How it works</a>
-        <a href="index.html#capabilities">What it does</a>
+        <a href="index.html#features">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="contact.html">Book a pilot</a>
       </div>
       <div class="col">
         <h4>Company</h4>
         <a href="contact.html">Contact</a>
-        <a href="contact.html">Book a pilot</a>
+        <a href="onboarding.html">New client onboarding</a>
         <a href="how-it-works.html#trust">Privacy &amp; data care</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <div>© <span data-year>2026</span> Misafir — <span style="font-style:italic;font-family:'Fraunces'">guest</span>, in Turkish.</div>
-      <div class="legal">
-        <span>Built for multi-venue hospitality</span>
-        <span>GDPR &amp; KVKK aware</span>
-      </div>
+      <div>© <span data-year>2026</span> Misafir — guest, in Turkish.</div>
+      <div class="legal"><span>Built for multi-venue hospitality</span><span>GDPR &amp; KVKK aware</span></div>
     </div>
   </div>
 </footer>

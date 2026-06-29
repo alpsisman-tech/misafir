@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Set up your venues — Misafir onboarding</title>
+<meta name="description" content="Tell us what we need to set Misafir up for your venues — channels, access, booking system, brand voice and languages. Takes about five minutes." />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<script>document.documentElement.className+=' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="mark">M</span>Misafir</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="how-it-works.html" data-page="how-it-works.html">How it works</a>
+      <a href="pricing.html" data-page="pricing.html">Pricing</a>
+      <a href="contact.html" class="btn">Book a pilot <span class="arr">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Client onboarding</span>
+    <h1 style="margin-top:18px">Let's set Misafir up for your <em>venues</em>.</h1>
+    <p>A few details and we can configure everything behind the scenes — channels, access, booking system and your house voice. About five minutes. You can leave anything you're unsure about blank.</p>
+  </div>
+</header>
+
+<section style="padding:24px 0 100px">
+  <div class="wrap">
+    <form id="wizard-form" class="wiz" novalidate data-success="Thank you — we've got everything we need to start configuring your setup. We'll be in touch shortly to confirm the details.">
+
+      <div class="wiz-steps">
+        <div class="s active"><span class="num">1</span><span class="txt">About you</span></div>
+        <span class="bar"></span>
+        <div class="s"><span class="num">2</span><span class="txt">Venues</span></div>
+        <span class="bar"></span>
+        <div class="s"><span class="num">3</span><span class="txt">Channels</span></div>
+        <span class="bar"></span>
+        <div class="s"><span class="num">4</span><span class="txt">Voice</span></div>
+        <span class="bar"></span>
+        <div class="s"><span class="num">5</span><span class="txt">Review</span></div>
+      </div>
+
+      <div id="wizard" class="wiz-panel">
+
+        <!-- STEP 1 -->
+        <div class="wiz-step show">
+          <h3>About you</h3>
+          <p class="sub">Who we'll be working with, and where to reach you.</p>
+          <div class="form-grid">
+            <div class="field"><label>Your name</label><input type="text" name="name" data-label="Name" required placeholder="Alp Şişman"></div>
+            <div class="field"><label>Your role</label><input type="text" name="role" data-label="Role" placeholder="Owner / manager"></div>
+            <div class="field"><label>Group or brand name</label><input type="text" name="group" data-label="Group" placeholder="Gaia"></div>
+            <div class="field"><label>Number of venues</label>
+              <select name="venue_count" data-label="Venues"><option>1</option><option>2</option><option selected>3</option><option>4–6</option><option>7+</option></select>
+            </div>
+            <div class="field"><label>Email</label><input type="email" name="email" data-label="Email" required placeholder="you@venue.com"></div>
+            <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" data-label="Phone" placeholder="+90 ..."></div>
+            <div class="field full"><label>Which plan are you starting on?</label>
+              <select name="tier" data-label="Plan">
+                <option>Front Desk — reviews &amp; guest messages (the pilot)</option>
+                <option>Front of House — adds reservations &amp; social</option>
+                <option>Maison — adds the weekly owner's brief</option>
+                <option>Not sure yet — help me choose</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="wiz-step">
+          <h3>Your venues</h3>
+          <p class="sub">Add each venue and a link to its Google listing so we can read its reviews.</p>
+          <div id="venues-wrap">
+            <button type="button" class="add-venue" id="add-venue">+ Add another venue</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="wiz-step">
+          <h3>Channels &amp; access</h3>
+          <p class="sub">Tick what you'd like Misafir to watch. We'll guide you through granting access after — nothing is needed right now.</p>
+          <div class="checks" style="margin-bottom:22px">
+            <label class="check"><input type="checkbox" name="ch_google" data-label="Google reviews" data-chan="Google reviews" checked> Google reviews</label>
+            <label class="check"><input type="checkbox" name="ch_gbp" data-label="Reply on Google" data-chan="Google replies (Business Profile)"> Reply on my Google profile</label>
+            <label class="check"><input type="checkbox" name="ch_wa" data-label="WhatsApp" data-chan="WhatsApp Business"> WhatsApp Business</label>
+            <label class="check"><input type="checkbox" name="ch_email" data-label="Email" data-chan="Email inbox"> Email enquiries</label>
+            <label class="check"><input type="checkbox" name="ch_ig" data-label="Instagram" data-chan="Instagram"> Instagram</label>
+            <label class="check"><input type="checkbox" name="ch_reviews_gen" data-label="Review requests" data-chan="Post-visit review requests"> Ask happy guests for reviews</label>
+          </div>
+          <div class="form-grid">
+            <div class="field"><label>WhatsApp Business number <span class="hint">if you ticked it</span></label><input type="tel" name="wa_number" data-label="WhatsApp number" placeholder="+90 ..."></div>
+            <div class="field"><label>Shared inbox / email to watch</label><input type="email" name="mailbox" data-label="Mailbox" placeholder="hello@yourvenue.com"></div>
+            <div class="field"><label>Instagram handle</label><input type="text" name="instagram" data-label="Instagram handle" placeholder="@yourvenue"></div>
+            <div class="field"><label>Website</label><input type="url" name="website" data-label="Website" placeholder="https://"></div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="wiz-step">
+          <h3>Booking &amp; house voice</h3>
+          <p class="sub">How you take reservations, and how your replies should sound.</p>
+          <div class="form-grid">
+            <div class="field full"><label>How do you take bookings?</label>
+              <select name="booking" data-label="Booking system">
+                <option>WhatsApp / phone</option>
+                <option>A reservations tool (OpenTable, SevenRooms, etc.)</option>
+                <option>POS system</option>
+                <option>Website form</option>
+                <option>Walk-ins only</option>
+                <option>Other / mixed</option>
+              </select>
+            </div>
+            <div class="field full"><label>Booking tool name <span class="hint">if you use one</span></label><input type="text" name="booking_name" data-label="Booking tool" placeholder="e.g. SevenRooms"></div>
+            <div class="field full"><label>Languages your guests write in</label><input type="text" name="languages" data-label="Languages" placeholder="Turkish, English, German..."></div>
+            <div class="field full"><label>Your tone in three words</label><input type="text" name="tone" data-label="Tone" placeholder="Warm, witty, never stiff"></div>
+            <div class="field full"><label>How you like to sign off</label><input type="text" name="signoff" data-label="Sign-off" placeholder="“See you by the sea — the Gaia team”"></div>
+            <div class="field full"><label>Anything to always do, or never do? <span class="hint">house rules for replies</span></label><textarea name="rules" data-label="Do / don't" placeholder="Never offer free meals. Always mention the terrace. Avoid emojis on Google."></textarea></div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="wiz-step">
+          <h3>Review &amp; send</h3>
+          <p class="sub">A quick look before it reaches us. Step back to change anything.</p>
+          <div class="card-pad" style="box-shadow:none;padding:22px"><div class="review-list" id="review-box"></div></div>
+          <div class="field full" style="margin-top:20px"><label>Anything else we should know?</label><textarea name="notes" data-label="Notes" placeholder="Opening hours, dietary notes, a contact for access, your timeline..."></textarea></div>
+          <p class="form-note" style="margin-top:14px">By sending, you agree we can use these details to configure your service. Your guests' data is handled with GDPR &amp; KVKK in mind.</p>
+        </div>
+
+        <div class="wiz-nav">
+          <button type="button" id="wiz-back" class="btn btn-ghost">← Back</button>
+          <div style="flex:1"></div>
+          <button type="button" id="wiz-next" class="btn">Continue <span class="arr">→</span></button>
+          <button type="submit" id="wiz-submit" class="btn" style="display:none">Send my details <span class="arr">→</span></button>
+        </div>
+        <div id="wiz-status" class="form-status"></div>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="col foot-about">
+        <a href="index.html" class="brand"><span class="mark">M</span>Misafir</a>
+        <p>An attentive front desk for every venue — reading, drafting and briefing in every language your guests speak.</p>
+      </div>
+      <div class="col">
+        <h4>Product</h4>
+        <a href="how-it-works.html">How it works</a>
+        <a href="index.html#features">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Book a pilot</a>
+      </div>
+      <div class="col">
+        <h4>Company</h4>
+        <a href="contact.html">Contact</a>
+        <a href="onboarding.html">New client onboarding</a>
+        <a href="how-it-works.html#trust">Privacy &amp; data care</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© <span data-year>2026</span> Misafir — guest, in Turkish.</div>
+      <div class="legal"><span>Built for multi-venue hospitality</span><span>GDPR &amp; KVKK aware</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Misafir — An AI maître for your venues</title>
-<meta name="description" content="Misafir is an AI concierge for restaurants and venue groups. It reads your reviews and guest messages, drafts replies in the guest's own language, and sends you a weekly read on every venue — you approve before anything goes out." />
+<meta name="description" content="Misafir reads your reviews and guest messages, drafts the reply in the guest's own language, and sends a weekly read on every venue. You approve before anything goes out." />
 <meta property="og:title" content="Misafir — An AI maître for your venues" />
 <meta property="og:description" content="Replies and content in your guests' own language, drafted automatically. You approve before anything goes live." />
 <meta property="og:type" content="website" />
@@ -12,20 +12,20 @@
 <script>document.documentElement.className+=' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <nav>
   <div class="wrap nav-inner">
-    <a href="index.html" class="brand"><span class="dot"></span>Misafir</a>
+    <a href="index.html" class="brand"><span class="mark">M</span>Misafir</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links">
       <a href="how-it-works.html" data-page="how-it-works.html">How it works</a>
-      <a href="index.html#capabilities" data-page="index.html">What it does</a>
+      <a href="index.html#features" data-page="index.html">Features</a>
       <a href="pricing.html" data-page="pricing.html">Pricing</a>
-      <a href="contact.html" class="btn">Book a pilot</a>
+      <a href="contact.html" class="btn">Book a pilot <span class="arr">→</span></a>
     </div>
   </div>
 </nav>
@@ -33,32 +33,38 @@
 <main>
 <header class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-copy">
       <div class="welcome-line">
-        <span class="welcome-word" id="welcome">Hoş geldiniz</span>
-        <span class="welcome-tag" data-dynamic>— whatever language your guest writes in</span>
+        <span class="eyebrow"><span class="dot"></span>AI concierge for hospitality</span>
       </div>
-      <h1 class="title">An AI maître for your <em>venues</em>.</h1>
-      <p class="lede">It reads your reviews and messages, drafts the reply in the guest's own language, and hands you a short read on how each venue is doing. You approve before anything goes out.</p>
+      <h1 class="title">An AI maître<br>for your <em>venues</em>.</h1>
+      <p class="lede">It reads every review and message, drafts the reply in the guest's own language, and hands you one short read on each venue. <strong>You approve before anything goes out.</strong></p>
       <div class="hero-cta">
         <a href="contact.html" class="btn btn-lg">Book a pilot <span class="arr">→</span></a>
-        <a href="how-it-works.html" class="btn btn-ghost btn-lg">See how it works</a>
+        <a href="#see-it-work" class="btn btn-ghost btn-lg">Watch it work</a>
       </div>
-      <div class="onboarding"><span class="pulse"></span> Now onboarding our first venues</div>
+      <div class="trust">
+        <span class="av"><span>TR</span><span>EN</span><span>DE</span></span>
+        Replies in any language · now onboarding our first venues
+      </div>
     </div>
 
-    <div class="brief reveal d1" aria-label="Example morning brief">
-      <div class="lang-badge"><span class="g"></span> Drafted in 4 languages</div>
-      <div class="brief-inner">
-        <div class="brief-top">
-          <span class="t">This morning</span>
+    <div class="hero-visual">
+      <div class="float-chip one"><span class="flag">🇹🇷</span> “Harika bir akşamdı!”</div>
+      <div class="float-chip two"><span class="flag">🇩🇪</span> Press · Der Feinschmecker</div>
+      <div class="float-chip three"><span class="flag">🇬🇧</span> Party of 12 · Friday?</div>
+      <div class="panel">
+        <div class="panel-top">
+          <span class="t"><span class="ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span> This morning</span>
           <span class="d">3 venues · 5 to look at</span>
         </div>
-        <div class="brief-row"><span class="chip red">Reply now</span><span class="body"><b>1★ at By the Sea</b> — slow service Saturday. Draft ready, in English.</span></div>
-        <div class="brief-row"><span class="chip gold">WhatsApp</span><span class="body"><b>Party of 12</b>, Turkish — asked about Friday. Draft ready.</span></div>
-        <div class="brief-row"><span class="chip gold">Inbox</span><span class="body"><b>Press enquiry</b>, German — flagged as worth your time.</span></div>
-        <div class="brief-row"><span class="chip sage">FYI</span><span class="body">Bazaar's rating up to <b>4.6</b> this week. Guests keep naming the terrace.</span></div>
-        <div class="brief-foot">✓ Nothing sends until you approve it.</div>
+        <div class="panel-body">
+          <div class="brief-row"><span class="chip red">Reply now</span><span class="body"><b>1★ at By the Sea</b> — slow service. Draft ready, in English.</span></div>
+          <div class="brief-row"><span class="chip green">WhatsApp</span><span class="body"><b>Party of 12</b>, Turkish — asked about Friday. Draft ready.</span></div>
+          <div class="brief-row"><span class="chip amber">Inbox</span><span class="body"><b>Press enquiry</b>, German — flagged as worth your time.</span></div>
+          <div class="brief-row"><span class="chip green">FYI</span><span class="body">Bazaar's rating up to <b>4.6</b> — guests keep naming the terrace.</span></div>
+        </div>
+        <div class="panel-foot">✓ Nothing sends until you approve it</div>
       </div>
     </div>
   </div>
@@ -70,68 +76,31 @@
     <div class="marquee">
       <div class="marquee-track">
         <span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.9 6.3L22 9l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.6 2 9l7.1-.7z"/></svg>Google reviews</span>
-        <span class="sep">·</span>
         <span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.7A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp Business</span>
-        <span class="sep">·</span>
         <span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</span>
-        <span class="sep">·</span>
         <span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>Email</span>
-        <span class="sep">·</span>
-        <span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.9 6.3L22 9l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.6 2 9l7.1-.7z"/></svg>Google Business Profile</span>
-        <span class="sep">·</span>
-        <span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H7l-3 3z"/></svg>Direct messages</span>
-        <span class="sep">·</span>
+        <span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Google Business</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- pillars -->
-<section id="how">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Why it's different</div>
-      <h2>Three things most tools won't do.</h2>
-    </div>
-    <div class="pillars reveal">
-      <div class="pillar">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14M5 8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2M7 8v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V8M10 12h4"/></svg></div>
-        <h3>Speaks their language</h3>
-        <p>A guest writes in Turkish, German, or English — the reply comes back in the same language, in your tone. No copy-paste, no translation guesswork.</p>
-      </div>
-      <div class="pillar">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 9.5C8 22.3 5 18.5 5 14V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>You hold the pass</h3>
-        <p>Every reply is a draft until you say yes. Nothing is posted, sent, or published in your name without a person signing off first.</p>
-      </div>
-      <div class="pillar">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 16l3-4 3 3 4-6"/></svg></div>
-        <h3>A weekly read</h3>
-        <p>Not just busywork. Each week you get a short, honest brief on ratings, what guests are praising, and what's slipping — across every venue.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- interactive demo: show, don't tell -->
-<section id="see-it-work" class="demo tint">
+<!-- the live demo: show, don't tell -->
+<section id="see-it-work" class="tint">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <div class="eyebrow">See it work</div>
-      <h2>A guest writes. Misafir <em>replies</em> — in their language.</h2>
-      <p>Watch a real message arrive, get read, and become a reply that's ready to send. Nothing leaves until you approve it.</p>
+      <span class="eyebrow"><span class="dot"></span>See it work</span>
+      <h2>A guest writes. It <em>replies</em> — in their language.</h2>
+      <p>Watch a real message arrive, get read, and become a reply that's ready to send.</p>
     </div>
 
     <div class="demo-stage reveal" data-demo>
       <div class="stage-col">
-        <div class="stage-label">Guest message · <b data-d="channel">Google review</b></div>
+        <div class="stage-label">Guest · <b data-d="channel">Google review</b></div>
         <div class="msg-card">
           <div class="msg-head">
             <span class="avatar" data-d="initial">M</span>
-            <div>
-              <div class="msg-name" data-d="name">Mehmet K.</div>
-              <div class="msg-meta" data-d="meta">★☆☆☆☆ · By the Sea</div>
-            </div>
+            <div><div class="msg-name" data-d="name">Mehmet K.</div><div class="msg-meta" data-d="meta">★☆☆☆☆ · By the Sea</div></div>
           </div>
           <p class="msg-body quote" data-d="incoming"></p>
           <div class="msg-tags">
@@ -141,23 +110,13 @@
           </div>
         </div>
       </div>
-
-      <div class="stage-flow">
-        <span class="arrowline"></span>
-        <span class="pip"></span>
-        <span class="lbl" data-d="flow">reads it</span>
-        <span class="arrowline"></span>
-      </div>
-
+      <div class="stage-flow"><span class="arrowline"></span><span class="pip"></span><span class="lbl" data-d="flow">reads it</span><span class="arrowline"></span></div>
       <div class="stage-col">
         <div class="stage-label">Misafir's draft · <b data-d="replylang">Turkish</b></div>
         <div class="msg-card draft">
           <div class="msg-head">
             <span class="avatar bot">M</span>
-            <div>
-              <div class="msg-name">Misafir</div>
-              <div class="msg-meta" data-d="draftstate">drafting…</div>
-            </div>
+            <div><div class="msg-name">Misafir</div><div class="msg-meta" data-d="draftstate">drafting…</div></div>
           </div>
           <p class="msg-body" data-d="reply"></p>
           <div class="draft-actions">
@@ -167,9 +126,7 @@
         </div>
       </div>
     </div>
-
     <div class="demo-progress"><i data-d="bar"></i></div>
-
     <div class="demo-langs reveal">
       <span>Jump to a language:</span>
       <button type="button" data-pick="0" class="active">Turkish</button>
@@ -180,94 +137,94 @@
   </div>
 </section>
 
+<!-- bento: what it handles (visual, low-text) -->
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>What it handles</span>
+      <h2>The daily noise, quietly taken care of.</h2>
+    </div>
+    <div class="bento">
+      <div class="tile wide reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.6 5.6L21 9.3l-4.7 4.3L17.5 21 12 17.6 6.5 21l1.2-7.4L3 9.3l6.4-.7z"/></svg></div>
+        <h3>Reviews &amp; reputation</h3>
+        <p>Every new Google review, watched daily — and replied to, on brand, in the reviewer's language.</p>
+        <div class="mini-viz"><div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+      </div>
+      <div class="tile third reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.7A8.4 8.4 0 1 1 21 11.5z"/></svg></div>
+        <h3>Guest messages, triaged</h3>
+        <div class="lanes">
+          <div class="lane"><span class="d" style="background:var(--coral)"></span> Complaint → urgent</div>
+          <div class="lane"><span class="d" style="background:var(--brand)"></span> Booking → drafted</div>
+          <div class="lane"><span class="d" style="background:var(--amber)"></span> Press → flagged</div>
+        </div>
+      </div>
+
+      <div class="tile dark third reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 9.5C8 22.3 5 18.5 5 14V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>You approve everything</h3>
+        <p>Nothing is sent in your name without a person's nod.</p>
+        <div class="approve-viz"><span class="txt">Draft ready — your call</span><span class="sw"></span></div>
+      </div>
+      <div class="tile half reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 16l3-4 3 3 4-6"/></svg></div>
+        <h3>A weekly owner's brief</h3>
+        <p>Ratings, themes and what's slipping — every venue, side by side.</p>
+        <div class="mini-viz"><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      </div>
+
+      <div class="tile third reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
+        <h3>Reservations</h3>
+        <p>Reminders, no-show follow-ups and VIP touches — fewer empty tables.</p>
+      </div>
+      <div class="tile third reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div>
+        <h3>Social &amp; content</h3>
+        <p>Captions and a calendar so the feed never goes quiet.</p>
+      </div>
+      <div class="tile third reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Market watch</h3>
+        <p>Nearby openings, reviews and how you compare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- how a day runs: compact stepper -->
+<section class="tint">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>How it works</span>
+      <h2>Four steps, repeated all day.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n"></div><h3>It notices</h3><p>A review, a message, an enquiry — across every venue.</p></div>
+      <div class="step reveal d1"><div class="n"></div><h3>It reads</h3><p>Language, intent and urgency, sorted before you see it.</p></div>
+      <div class="step reveal d2"><div class="n"></div><h3>It drafts</h3><p>A ready-to-send reply in the guest's own words.</p></div>
+      <div class="step reveal d3"><div class="n"></div><h3>You approve</h3><p>A glance, a nod — then it goes. Never before.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- stats -->
-<section style="padding:64px 0">
+<section style="padding:72px 0">
   <div class="wrap">
     <div class="stats reveal">
       <div class="stat"><div class="big"><span data-count="6">6</span></div><div class="lbl">Languages drafted out of the box</div></div>
-      <div class="stat"><div class="big"><span data-count="100" data-suffix="%">100%</span></div><div class="lbl">Approved by a human before it sends</div></div>
-      <div class="stat"><div class="big"><span data-count="4">4</span></div><div class="lbl">Channels watched in one brief</div></div>
-      <div class="stat"><div class="big"><span data-count="1">1</span></div><div class="lbl">Weekly read on every venue</div></div>
+      <div class="stat"><div class="big"><span data-count="100" data-suffix="%">100%</span></div><div class="lbl">Approved by a human first</div></div>
+      <div class="stat"><div class="big"><span data-count="4">4</span></div><div class="lbl">Channels in one brief</div></div>
+      <div class="stat"><div class="big"><span data-count="1">1</span></div><div class="lbl">Weekly read per venue</div></div>
     </div>
   </div>
 </section>
 
-<!-- capabilities -->
-<section id="capabilities">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">What it does</div>
-      <h2>Start with the essentials. Grow into the rest.</h2>
-      <p>Most venues begin with reviews and messages — the daily noise that's easy to let slip. The rest layers on when you're ready.</p>
-    </div>
-    <div class="caps">
-      <div class="cap lead reveal">
-        <span class="tag">Start here</span>
-        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l2.6 5.6L21 9.3l-4.7 4.3L17.5 21 12 17.6 6.5 21l1.2-7.4L3 9.3l6.4-.7z"/></svg></span>Reviews &amp; reputation</h3>
-        <ul>
-          <li>Watches new Google reviews across every venue, daily.</li>
-          <li>Drafts an on-brand reply in the reviewer's language.</li>
-          <li>Flags 1–2★ reviews as urgent so none slip past.</li>
-          <li>Nudges happy guests to leave a review after they visit.</li>
-        </ul>
-      </div>
-      <div class="cap lead reveal d1">
-        <span class="tag">Start here</span>
-        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.7A8.4 8.4 0 1 1 21 11.5z"/></svg></span>Guest messages</h3>
-        <ul>
-          <li>Reads and drafts replies to WhatsApp Business messages.</li>
-          <li>Triages email enquiries: booking, event, press, supplier.</li>
-          <li>Answers the repeat questions — hours, parking, dietary.</li>
-          <li>Flags the big ones: large groups, journalists, VIPs.</li>
-        </ul>
-      </div>
-      <div class="cap reveal">
-        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3"/></svg></span>Reservations &amp; guests</h3>
-        <ul>
-          <li>Confirmations and day-before reminders to cut no-shows.</li>
-          <li>Follow-ups after no-shows and cancellations.</li>
-          <li>Post-visit thank-you that asks for a review.</li>
-          <li>Remembers birthdays and anniversaries for VIP touches.</li>
-        </ul>
-      </div>
-      <div class="cap reveal d1">
-        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Social &amp; content</h3>
-        <ul>
-          <li>Instagram captions in Turkish and English from one photo.</li>
-          <li>A weekly content calendar so it never goes quiet.</li>
-          <li>Event and seasonal-menu announcements, drafted.</li>
-          <li>Replies to Instagram comments and DMs.</li>
-        </ul>
-      </div>
-      <div class="cap reveal">
-        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 16l3-4 3 3 4-6"/></svg></span>Owner's brief</h3>
-        <ul>
-          <li>A weekly read on every venue, side by side.</li>
-          <li>The themes guests keep raising, good and bad.</li>
-          <li>Early warning when a rating starts to slip.</li>
-          <li>A short list of what's actually worth acting on.</li>
-        </ul>
-      </div>
-      <div class="cap reveal d1">
-        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>Market watch</h3>
-        <ul>
-          <li>Keeps an eye on nearby venues' new reviews.</li>
-          <li>Flags new openings and notable events close by.</li>
-          <li>Tracks how you stack up on rating over time.</li>
-          <li>Surfaces it all in the same weekly brief.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="center reveal" style="margin-top:42px">
-      <a href="how-it-works.html" class="btn btn-ghost">See how a week actually runs <span class="arr">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- belief / quote -->
-<section class="tint belief">
+<!-- belief -->
+<section class="belief tint" style="padding:84px 0">
   <div class="wrap reveal">
-    <blockquote>Hospitality is <em>attention.</em> We just make sure none of it slips through.</blockquote>
+    <blockquote>Hospitality is <em>attention.</em> We make sure none of it slips.</blockquote>
     <div class="by">The work still sounds like you — because you sign off on every word.</div>
   </div>
 </section>
@@ -276,9 +233,8 @@
 <section id="pricing">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <div class="eyebrow">Pricing</div>
-      <h2>Begin small. The pilot proves itself first.</h2>
-      <p>Start on a single tier, see it work on your real guests, and add the rest only when it's earning its place.</p>
+      <span class="eyebrow"><span class="dot"></span>Pricing</span>
+      <h2>Begin with a pilot. Grow when it earns it.</h2>
     </div>
     <div class="tiers">
       <div class="tier feature reveal">
@@ -289,11 +245,11 @@
         <div class="setup">+ £250 setup · up to 3 venues</div>
         <ul>
           <li>Google review monitoring &amp; drafted replies</li>
-          <li>WhatsApp &amp; email enquiry triage</li>
+          <li>WhatsApp &amp; email triage</li>
           <li>Multilingual, on-brand drafts</li>
           <li>Urgent-review flagging</li>
         </ul>
-        <a href="contact.html" class="btn">Book a pilot</a>
+        <a href="contact.html" class="btn btn-block">Book a pilot</a>
       </div>
       <div class="tier reveal d1">
         <div class="rec alt">More cover</div>
@@ -303,11 +259,11 @@
         <div class="setup">+ £500 setup · up to 3 venues</div>
         <ul>
           <li>Everything in Front Desk</li>
-          <li>Booking reminders &amp; no-show follow-ups</li>
-          <li>Instagram captions &amp; content calendar</li>
+          <li>Booking reminders &amp; follow-ups</li>
+          <li>Instagram captions &amp; calendar</li>
           <li>Event &amp; menu announcements</li>
         </ul>
-        <a href="contact.html" class="btn btn-ghost">Talk to us</a>
+        <a href="contact.html" class="btn btn-ghost btn-block">Talk to us</a>
       </div>
       <div class="tier reveal d2">
         <div class="rec alt">The full house</div>
@@ -317,25 +273,24 @@
         <div class="setup">+ £900 setup · multi-venue</div>
         <ul>
           <li>Everything in Front of House</li>
-          <li>Weekly owner's intelligence brief</li>
+          <li>Weekly owner's brief</li>
           <li>Cross-venue comparison</li>
           <li>Competitor &amp; market watch</li>
         </ul>
-        <a href="contact.html" class="btn btn-ghost">Talk to us</a>
+        <a href="contact.html" class="btn btn-ghost btn-block">Talk to us</a>
       </div>
     </div>
-    <p class="pricing-note">Every venue starts with a short pilot. No long contracts — stay because it works. <a href="pricing.html" style="color:var(--brass-bright)">See full pricing &amp; FAQ →</a></p>
+    <p class="pricing-note">No long contracts — stay because it works. <a href="pricing.html">Full pricing &amp; FAQ →</a></p>
   </div>
 </section>
 
-<!-- close -->
-<section id="contact" class="close tint">
-  <div class="wrap reveal">
-    <div class="eyebrow">Book a pilot</div>
-    <h2>See it run on <em>your</em> venue first.</h2>
-    <p>We'll set it up for one of your venues and send you a week of real drafts and briefs. If it's not pulling its weight, you've lost nothing.</p>
+<!-- CTA -->
+<section style="padding:40px 0 90px">
+  <div class="cta reveal">
+    <h2>See it run on <em style="color:var(--mint)">your</em> venue first.</h2>
+    <p>We'll set it up for one venue and send you a week of real drafts and a brief. If it's not pulling its weight, you've lost nothing.</p>
     <div class="hero-cta">
-      <a href="contact.html" class="btn btn-lg">Start the conversation <span class="arr">→</span></a>
+      <a href="contact.html" class="btn btn-lg" style="background:#fff;color:var(--brand-ink)">Book a pilot <span class="arr">→</span></a>
       <a href="pricing.html" class="btn btn-ghost btn-lg">See pricing</a>
     </div>
   </div>
@@ -346,29 +301,26 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="col foot-about">
-        <a href="index.html" class="brand"><span class="dot"></span>Misafir</a>
-        <p>An attentive front desk for every venue — reading, drafting, and briefing in every language your guests speak.</p>
+        <a href="index.html" class="brand"><span class="mark">M</span>Misafir</a>
+        <p>An attentive front desk for every venue — reading, drafting and briefing in every language your guests speak.</p>
       </div>
       <div class="col">
         <h4>Product</h4>
         <a href="how-it-works.html">How it works</a>
-        <a href="index.html#capabilities">What it does</a>
+        <a href="index.html#features">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="contact.html">Book a pilot</a>
       </div>
       <div class="col">
         <h4>Company</h4>
         <a href="contact.html">Contact</a>
-        <a href="contact.html">Book a pilot</a>
+        <a href="onboarding.html">New client onboarding</a>
         <a href="how-it-works.html#trust">Privacy &amp; data care</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <div>© <span data-year>2026</span> Misafir — <span style="font-style:italic;font-family:'Fraunces'">guest</span>, in Turkish.</div>
-      <div class="legal">
-        <span>Built for multi-venue hospitality</span>
-        <span>GDPR &amp; KVKK aware</span>
-      </div>
+      <div>© <span data-year>2026</span> Misafir — <em style="font-style:normal">guest</em>, in Turkish.</div>
+      <div class="legal"><span>Built for multi-venue hospitality</span><span>GDPR &amp; KVKK aware</span></div>
     </div>
   </div>
 </footer>
