@@ -61,6 +61,46 @@
     }, 2700);
   }
 
+  /* ---- bento: cycling greetings tile ---- */
+  var cyc = document.querySelector("[data-cycle]");
+  if (cyc && !reduce) {
+    var cflag = document.querySelector("[data-cycle-flag]");
+    var greet = [
+      ["🇹🇷", "Hoş geldiniz"], ["🇬🇧", "Welcome"], ["🇩🇪", "Willkommen"],
+      ["🇮🇹", "Benvenuti"], ["🇫🇷", "Bienvenue"], ["🇬🇷", "Καλώς ήρθατε"], ["🇪🇸", "Bienvenidos"]
+    ];
+    var ci = 0;
+    setInterval(function () {
+      cyc.style.opacity = 0; cyc.style.transform = "translateY(6px)";
+      setTimeout(function () {
+        ci = (ci + 1) % greet.length;
+        cyc.textContent = greet[ci][1];
+        if (cflag) cflag.textContent = greet[ci][0];
+        cyc.style.opacity = 1; cyc.style.transform = "none";
+      }, 380);
+    }, 2200);
+  }
+
+  /* ---- hero parallax (pointer + scroll), gentle ---- */
+  var heroVisual = document.querySelector(".hero-visual");
+  if (heroVisual && !reduce && window.matchMedia("(pointer:fine)").matches) {
+    var hero = document.querySelector(".hero");
+    var px = 0, py = 0, tx = 0, ty = 0, raf = null;
+    var loop = function () {
+      tx += (px - tx) * 0.08; ty += (py - ty) * 0.08;
+      heroVisual.style.transform = "translate3d(" + tx.toFixed(2) + "px," + ty.toFixed(2) + "px,0)";
+      if (Math.abs(px - tx) > 0.1 || Math.abs(py - ty) > 0.1) raf = requestAnimationFrame(loop);
+      else raf = null;
+    };
+    hero.addEventListener("pointermove", function (e) {
+      var r = hero.getBoundingClientRect();
+      px = ((e.clientX - r.left) / r.width - 0.5) * 16;
+      py = ((e.clientY - r.top) / r.height - 0.5) * 12;
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    hero.addEventListener("pointerleave", function () { px = 0; py = 0; if (!raf) raf = requestAnimationFrame(loop); });
+  }
+
   /* ---- channel marquee ---- */
   var track = document.querySelector(".marquee-track");
   if (track && !reduce) { track.innerHTML = track.innerHTML + track.innerHTML; }

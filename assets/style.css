@@ -89,6 +89,8 @@ img,svg{display:block;max-width:100%}
   transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease);
   box-shadow:0 10px 24px -12px rgba(14,159,110,.7);
 }
+.btn::after{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);transition:left .6s var(--ease);pointer-events:none}
+.btn:hover::after{left:150%}
 .btn:hover{transform:translateY(-2px);background:var(--brand-deep);box-shadow:0 16px 30px -12px rgba(14,159,110,.75)}
 .btn:active{transform:translateY(0)}
 .btn .arr{transition:transform .2s var(--ease)}
@@ -98,16 +100,54 @@ img,svg{display:block;max-width:100%}
 .btn-lg{padding:16px 28px;font-size:16px}
 .btn-block{width:100%;justify-content:center}
 
-/* ---------- nav ---------- */
+/* ---------- nav · Apple-style liquid glass ---------- */
 nav{position:sticky;top:0;z-index:60;padding:14px 0;transition:padding .3s var(--ease)}
 .nav-inner{
+  position:relative;overflow:hidden;isolation:isolate;
   display:flex;align-items:center;justify-content:space-between;gap:24px;
-  background:rgba(251,250,246,0.72);backdrop-filter:blur(16px) saturate(150%);
-  border:1px solid var(--line);border-radius:var(--r-pill);
-  padding:10px 12px 10px 22px;box-shadow:var(--sh-sm);
-  transition:box-shadow .3s var(--ease),background .3s var(--ease);
+  border-radius:var(--r-pill);
+  padding:10px 12px 10px 22px;
+  /* the glass */
+  background:linear-gradient(177deg, rgba(255,255,255,0.55), rgba(255,255,255,0.32));
+  backdrop-filter:blur(22px) saturate(200%) brightness(1.07);
+  -webkit-backdrop-filter:blur(22px) saturate(200%) brightness(1.07);
+  border:1px solid rgba(255,255,255,0.5);
+  /* glass thickness: bright inner rim (top-left light) + soft float shadow */
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.95),
+    inset 0 -8px 18px -10px rgba(255,255,255,0.55),
+    inset 0 0 0 1px rgba(255,255,255,0.18),
+    0 12px 34px -10px rgba(16,24,21,0.20),
+    0 3px 10px -4px rgba(16,24,21,0.10);
+  transition:box-shadow .3s var(--ease),background .3s var(--ease),backdrop-filter .3s var(--ease);
 }
-nav.scrolled .nav-inner{box-shadow:var(--sh);background:rgba(251,250,246,0.92)}
+/* glossy dome highlight across the top edge */
+.nav-inner::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
+  background:radial-gradient(140% 100% at 30% -60%, rgba(255,255,255,0.75), rgba(255,255,255,0) 55%);
+  opacity:.7;mix-blend-mode:screen;
+}
+/* slow liquid specular sweep */
+.nav-inner::before{
+  content:"";position:absolute;top:-20%;left:-40%;width:45%;height:140%;pointer-events:none;z-index:0;
+  background:linear-gradient(105deg, transparent, rgba(255,255,255,0.45) 50%, transparent);
+  transform:skewX(-16deg);filter:blur(2px);
+  animation:sheen 9s ease-in-out infinite;
+}
+@keyframes sheen{0%{left:-45%}55%{left:135%}100%{left:135%}}
+.nav-inner .brand,.nav-inner .nav-links,.nav-inner .nav-toggle{position:relative;z-index:1}
+nav.scrolled .nav-inner{
+  background:linear-gradient(177deg, rgba(255,255,255,0.66), rgba(255,255,255,0.44));
+  backdrop-filter:blur(28px) saturate(210%) brightness(1.05);
+  -webkit-backdrop-filter:blur(28px) saturate(210%) brightness(1.05);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,1),
+    inset 0 -8px 18px -10px rgba(255,255,255,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.22),
+    0 16px 40px -10px rgba(16,24,21,0.26),
+    0 4px 12px -4px rgba(16,24,21,0.12);
+}
+@media(prefers-reduced-motion:reduce){.nav-inner::before{display:none}}
 .brand{font-family:"Space Grotesk";font-size:21px;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
 .brand .mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(150deg,var(--brand),var(--brand-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:700;box-shadow:0 6px 14px -6px rgba(14,159,110,.7)}
 .nav-links{display:flex;gap:6px;align-items:center;font-size:15px}
@@ -240,7 +280,7 @@ h1.title{font-size:clamp(46px,7.2vw,86px);line-height:0.98;letter-spacing:-0.04e
 .demo-progress i{display:block;height:100%;width:0;background:var(--brand)}
 
 /* ---------- bento grid (capabilities) ---------- */
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;grid-auto-flow:row dense}
 @media(max-width:900px){.bento{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.bento{grid-template-columns:1fr}}
 .tile{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;box-shadow:var(--sh-sm);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
@@ -277,6 +317,11 @@ h1.title{font-size:clamp(46px,7.2vw,86px);line-height:0.98;letter-spacing:-0.04e
 .approve-viz .txt{flex:1;font-size:13px;color:var(--ink-2)}
 .approve-viz .sw{width:44px;height:25px;border-radius:var(--r-pill);background:var(--brand);position:relative;flex:none}
 .approve-viz .sw::after{content:"";position:absolute;top:3px;left:3px;width:19px;height:19px;border-radius:50%;background:#fff;animation:toggle 3s var(--ease) infinite}
+.cycle{margin-top:18px;display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:600;font-size:24px;color:var(--brand-deep);min-height:1.4em}
+.cycle .w{transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.cycle .flag{font-size:20px}
+.live-dot{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--brand-deep)}
+.live-dot i{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 0 rgba(14,159,110,.5);animation:beacon 2s infinite}
 @keyframes toggle{0%,40%{left:3px}60%,100%{left:22px}}
 @keyframes grow2{}
 @media(prefers-reduced-motion:reduce){.bars i,.lane,.stars span,.approve-viz .sw::after,.float-chip{animation:none!important}.stars span{opacity:1}}
@@ -446,7 +491,8 @@ footer{padding:60px 0 36px;color:var(--muted);font-size:14.5px;margin-top:80px;b
 .js .hero-copy>*:nth-child(3){animation-delay:.21s}
 .js .hero-copy>*:nth-child(4){animation-delay:.29s}
 .js .hero-copy>*:nth-child(5){animation-delay:.37s}
-.js .hero-visual{opacity:0;animation:fadeUp 1s var(--ease) .2s forwards}
+.js .hero-visual{opacity:0;animation:fadeOnly 1s var(--ease) .2s forwards}
+@keyframes fadeOnly{from{opacity:0}to{opacity:1}}
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
