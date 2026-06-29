@@ -8,7 +8,7 @@ with a human approval gate).
 - `index.html` — home: animated multilingual hero, live "morning brief" demo, why-it's-different pillars, stats, the six capability modules, pricing preview, CTA.
 - `how-it-works.html` — the watch → read → draft → approve loop, a week in the life, a real review→reply showcase, integrations, and trust/data care (GDPR & KVKK, the human gate).
 - `pricing.html` — the three tiers (Front Desk / Front of House / Maison), what's in every tier, and an FAQ.
-- `contact.html` — "book a pilot" form (opens the visitor's email client to `hello@misafir.app`; no backend required).
+- `contact.html` — "book a pilot" form. Submits over AJAX to FormSubmit and shows an inline success message — the button sends immediately, no email client involved. The destination address is assembled at runtime from a base64 string in `assets/main.js`, so it never appears as plain text in the page.
 
 ## Shared assets
 - `assets/style.css` — the "evening service" design system: Aegean ink-teal base, brass accent, ivory surfaces; Fraunces + Manrope; reveal-on-scroll, responsive, reduced-motion safe.
@@ -25,7 +25,7 @@ Pure static files — host on any static host (GitHub Pages, Netlify, Vercel, Cl
 No build step. Open `index.html` locally to preview.
 
 ## To customise
-- **Rename the brand**: replace `Misafir` in each page's `<title>`, nav brand, footer brand, and the `hello@misafir.app` mailto / contact handler in `assets/main.js`.
-- **Pricing** (£49 / £99 / £179 + setup) is placeholder — finalize per market (GBP / EUR / TRY; per-venue vs flat for groups).
-- **Contact form** currently opens the visitor's mail client. To capture submissions server-side, point the `#contact-form` handler at a form endpoint (e.g. Formspree) or a serverless function.
+- **Rename the brand**: replace `Misafir` in each page's `<title>`, nav brand, and footer brand.
+- **Pricing**: Front Desk £99/mo (+£250 setup), Front of House £199/mo (+£500), Maison £349/mo (+£900). Adjust per market (GBP / EUR / TRY; per-venue vs flat for groups).
+- **Contact form** posts to FormSubmit (`https://formsubmit.co`) with no signup. The destination email is set via a base64 string in `assets/main.js` (search for `atob`). **One-time activation:** the first time the form is submitted, FormSubmit emails the destination address a confirmation link — click it once and every submission after that arrives instantly in the inbox. To swap the address, change the base64 value. For a setup where the email is fully hidden behind a random key (never in the source at all), create a free key at web3forms.com or formspree.io and point the `fetch` at that endpoint instead.
 - No invented testimonials or logos — "now onboarding our first venues" is the honest, intentional positioning.

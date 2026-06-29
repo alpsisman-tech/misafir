@@ -119,39 +119,52 @@
     counters.forEach(function (c) { cio.observe(c); });
   }
 
-  /* ---- contact form (mailto-based, no backend needed) ---- */
+  /* ---- contact form: sends immediately, no email client, no backend code ----
+     Posts straight to FormSubmit (https://formsubmit.co) over AJAX. The
+     destination address is assembled at runtime from a base64 string so it
+     never appears as plain text in the page source. ---- */
   var form = document.getElementById("contact-form");
   if (form) {
+    var dest;
+    try { dest = window.atob("YWxwLnNpc21hbkBnbWFpbC5jb20="); } catch (e) { dest = ""; }
+    var endpoint = "https://formsubmit.co/ajax/" + dest;
+    var status = document.getElementById("form-status");
+    var btn = form.querySelector("button[type=submit]");
+    var btnLabel = btn ? btn.innerHTML : "";
+
+    var setStatus = function (msg, ok) {
+      if (!status) return;
+      status.className = "form-status ok" + (ok ? "" : " warn");
+      status.textContent = msg;
+    };
+
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var data = new FormData(form);
-      var name = (data.get("name") || "").toString().trim();
       var venue = (data.get("venue") || "").toString().trim();
-      var venues = (data.get("venues") || "").toString().trim();
-      var tier = (data.get("tier") || "").toString().trim();
-      var email = (data.get("email") || "").toString().trim();
-      var message = (data.get("message") || "").toString().trim();
+      data.append("_subject", "New pilot enquiry — " + (venue || "Misafir"));
+      data.append("_template", "table");
+      data.append("_captcha", "false");
 
-      var subject = "Pilot enquiry — " + (venue || name || "Misafir");
-      var bodyLines = [
-        "Name: " + name,
-        "Venue / group: " + venue,
-        "Number of venues: " + venues,
-        "Interested in: " + tier,
-        "Email: " + email,
-        "",
-        message
-      ];
-      var href = "mailto:hello@misafir.app" +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(bodyLines.join("\n"));
+      if (btn) { btn.disabled = true; btn.innerHTML = "Sending…"; }
+      setStatus("Sending…", true);
 
-      var status = document.getElementById("form-status");
-      if (status) {
-        status.classList.add("ok");
-        status.textContent = "Opening your email app to send this to hello@misafir.app. If nothing happens, write to us there directly.";
-      }
-      window.location.href = href;
+      fetch(endpoint, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: data
+      })
+      .then(function (r) { if (!r.ok) throw new Error("bad"); return r.json().catch(function () { return {}; }); })
+      .then(function () {
+        form.reset();
+        setStatus("Thank you — your message is on its way. We'll be in touch shortly.", true);
+      })
+      .catch(function () {
+        setStatus("Sorry, that didn't send. Please try again in a moment.", false);
+      })
+      .then(function () {
+        if (btn) { btn.disabled = false; btn.innerHTML = btnLabel; }
+      });
     });
   }
 

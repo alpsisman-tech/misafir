@@ -298,6 +298,7 @@ h1.title{font-size:clamp(42px,6.4vw,72px);max-width:15ch}
 .contact-aside .item .v{font-size:16px;color:var(--ivory)}
 .form-status{margin-top:18px;font-size:15px;padding:14px 16px;border-radius:6px;display:none}
 .form-status.ok{display:block;background:rgba(146,168,155,.14);border:1px solid var(--line-strong);color:var(--ivory)}
+.form-status.warn{background:rgba(232,148,133,.14);border-color:rgba(232,148,133,.4)}
 
 /* ---------- close / CTA band ---------- */
 .close{text-align:center;position:relative;overflow:hidden}
