@@ -5,14 +5,17 @@ productized service (reviews + guest messages + weekly owner's brief, draft-firs
 with a human approval gate).
 
 ## Pages
-- `index.html` — home: animated multilingual hero, live "morning brief" demo, why-it's-different pillars, stats, the six capability modules, pricing preview, CTA.
-- `how-it-works.html` — the watch → read → draft → approve loop, a week in the life, a real review→reply showcase, integrations, and trust/data care (GDPR & KVKK, the human gate).
+- `index.html` — home: animated multilingual hero (ember particles + pointer-reactive glow), the **interactive "see it work" demo**, why-it's-different pillars, stats, the six capability modules, pricing preview, CTA.
+- `how-it-works.html` — the watch → read → draft → approve loop, a week in the life, the **interactive demo**, integrations, and trust/data care (GDPR & KVKK, the human gate).
+
+## The interactive demo (show, don't tell)
+The centerpiece on both `index.html` and `how-it-works.html`. A guest message arrives (cycling through real examples in Turkish, German, English and Italian), Misafir surfaces the detected language / intent / sentiment, then **typewrites the reply in that language** and waits behind an "Approve & send" gate. It auto-advances through the languages, visitors can jump to any language, and "Approve" demonstrates the human gate. Driven by the engine in `assets/main.js` (search `data-demo`); fully reduced-motion safe (shows a resolved static state instead of animating).
 - `pricing.html` — the three tiers (Front Desk / Front of House / Maison), what's in every tier, and an FAQ.
 - `contact.html` — "book a pilot" form. Submits over AJAX to FormSubmit and shows an inline success message — the button sends immediately, no email client involved. The destination address is assembled at runtime from a base64 string in `assets/main.js`, so it never appears as plain text in the page.
 
 ## Shared assets
-- `assets/style.css` — the "evening service" design system: Aegean ink-teal base, brass accent, ivory surfaces; Fraunces + Manrope; reveal-on-scroll, responsive, reduced-motion safe.
-- `assets/main.js` — nav condense + mobile menu, multilingual welcome rotator, scroll reveals, stat count-ups, contact form handler.
+- `assets/style.css` — the "evening service" design system: Aegean ink-teal base, brass accent, ivory surfaces; Fraunces + Manrope. Floating cards with gradient borders (no boxy 1px grids), an animated aurora background, soft section dividers, button sheen, metallic display headings. Responsive and reduced-motion safe.
+- `assets/main.js` — nav condense + scroll-progress bar, mobile menu, multilingual welcome rotator, hero ember-particle canvas + pointer glow, channel marquee, scroll reveals, stat count-ups, the interactive demo engine, and the contact form handler.
 - `favicon.svg` — brand mark.
 
 ## Design system

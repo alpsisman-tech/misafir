@@ -118,30 +118,69 @@
   </div>
 </section>
 
-<!-- example draft showcase -->
-<section>
+<!-- interactive draft showcase: show, don't tell -->
+<section id="see-it-work" class="demo">
   <div class="wrap">
     <div class="sec-head center reveal">
       <div class="eyebrow">In its own words</div>
-      <h2>One review in. The right reply out.</h2>
-      <p>A real shape of the work: a guest's complaint, and the draft waiting for your approval — in the language they wrote in.</p>
+      <h2>One message in. The right reply out.</h2>
+      <p>Watch it for real: a guest writes, Misafir reads the language, intent and mood, then drafts the reply — and waits for your approval.</p>
     </div>
-    <div class="caps" style="align-items:start">
-      <div class="brief reveal">
-        <div class="brief-inner">
-          <div class="brief-top"><span class="t">Incoming · Google</span><span class="d">By the Sea · ★☆☆☆☆</span></div>
-          <div class="brief-row"><span class="chip red">1★</span><span class="body"><b>Mehmet K.</b> — “Manzara güzeldi ama servis çok yavaştı, bir saat bekledik. Hayal kırıklığı.”</span></div>
-          <div class="brief-foot">Detected: Turkish · Theme: slow service · Sentiment: negative</div>
+
+    <div class="demo-stage reveal" data-demo>
+      <div class="stage-col">
+        <div class="stage-label">Guest message · <b data-d="channel">Google review</b></div>
+        <div class="msg-card">
+          <div class="msg-head">
+            <span class="avatar" data-d="initial">M</span>
+            <div>
+              <div class="msg-name" data-d="name">Mehmet K.</div>
+              <div class="msg-meta" data-d="meta">★☆☆☆☆ · By the Sea</div>
+            </div>
+          </div>
+          <p class="msg-body quote" data-d="incoming"></p>
+          <div class="msg-tags">
+            <span class="tag-pill lang" data-d="lang">Turkish</span>
+            <span class="tag-pill" data-d="intent">Complaint</span>
+            <span class="tag-pill" data-d="sentiment">Negative</span>
+          </div>
         </div>
       </div>
-      <div class="brief reveal d1" style="border-color:var(--brass)">
-        <div class="lang-badge"><span class="g"></span> Draft · awaiting you</div>
-        <div class="brief-inner">
-          <div class="brief-top"><span class="t">Drafted reply · Turkish</span><span class="d">tap to approve</span></div>
-          <div class="brief-row"><span class="chip gold">Reply</span><span class="body">“Merhaba Mehmet Bey, ilginiz için teşekkür ederiz. Manzaramızı beğenmenize sevindik — fakat bir saat beklemenize üzüldük, bu bizim standardımız değil. Ekibimizle paylaştık. Bir sonraki ziyaretinizde telafi etmek isteriz.”</span></div>
-          <div class="brief-foot">✓ On-brand · ✓ In Turkish · ✓ Nothing sent until you approve</div>
+
+      <div class="stage-flow">
+        <span class="arrowline"></span>
+        <span class="pip"></span>
+        <span class="lbl" data-d="flow">reads it</span>
+        <span class="arrowline"></span>
+      </div>
+
+      <div class="stage-col">
+        <div class="stage-label">Misafir's draft · <b data-d="replylang">Turkish</b></div>
+        <div class="msg-card draft">
+          <div class="msg-head">
+            <span class="avatar bot">M</span>
+            <div>
+              <div class="msg-name">Misafir</div>
+              <div class="msg-meta" data-d="draftstate">drafting…</div>
+            </div>
+          </div>
+          <p class="msg-body" data-d="reply"></p>
+          <div class="draft-actions">
+            <button class="mini-approve" type="button" data-d="approve">Approve &amp; send</button>
+            <span class="mini-note">you decide</span>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="demo-progress"><i data-d="bar"></i></div>
+
+    <div class="demo-langs reveal">
+      <span>Jump to a language:</span>
+      <button type="button" data-pick="0" class="active">Turkish</button>
+      <button type="button" data-pick="1">German</button>
+      <button type="button" data-pick="2">English</button>
+      <button type="button" data-pick="3">Italian</button>
     </div>
   </div>
 </section>
