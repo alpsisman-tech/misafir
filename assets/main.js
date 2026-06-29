@@ -81,6 +81,28 @@
     }, 2200);
   }
 
+  /* ---- hero live ticker ---- */
+  var tick = document.querySelector("[data-ticker]");
+  if (tick && !reduce) {
+    var jobs = [
+      "drafting a reply to a Turkish review",
+      "answering a German press enquiry",
+      "confirming an English booking for 12",
+      "writing an Italian thank-you note",
+      "flagging a 1★ review for you",
+      "queuing this week's Instagram captions"
+    ];
+    var ti = 0;
+    setInterval(function () {
+      tick.style.opacity = 0; tick.style.transform = "translateY(5px)";
+      setTimeout(function () {
+        ti = (ti + 1) % jobs.length;
+        tick.textContent = jobs[ti];
+        tick.style.opacity = 1; tick.style.transform = "none";
+      }, 350);
+    }, 2600);
+  }
+
   /* ---- hero parallax (pointer + scroll), gentle ---- */
   var heroVisual = document.querySelector(".hero-visual");
   if (heroVisual && !reduce && window.matchMedia("(pointer:fine)").matches) {
