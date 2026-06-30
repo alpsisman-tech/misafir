@@ -177,6 +177,34 @@
     starsViz.querySelectorAll("span").forEach(function (s) { s.classList.add("lit"); });
   }
 
+  /* ---- 3D tilt on cards ---- */
+  if (!reduce && window.matchMedia("(pointer:fine)").matches) {
+    document.querySelectorAll(".tile, .mcard, .tier, .aud-card").forEach(function (card) {
+      card.classList.add("tilt");
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = "perspective(820px) rotateX(" + (-py * 4.5).toFixed(2) + "deg) rotateY(" + (px * 6).toFixed(2) + "deg) translateY(-5px)";
+      });
+      card.addEventListener("pointerleave", function () { card.style.transform = ""; });
+    });
+  }
+
+  /* ---- restaurants / hotels audience toggle ---- */
+  var audBtns = document.querySelectorAll(".aud button[data-aud]");
+  if (audBtns.length) {
+    audBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-aud");
+        audBtns.forEach(function (x) { x.classList.toggle("on", x === b); });
+        document.querySelectorAll(".aud-panel").forEach(function (p) {
+          p.classList.toggle("show", p.getAttribute("data-panel") === k);
+        });
+      });
+    });
+  }
+
   /* ============================================================
      Interactive "see it work" demo
      ============================================================ */
@@ -191,14 +219,14 @@
         incoming: "Guten Tag, ich schreibe für ein Gourmet-Magazin und plane ein Feature über die Ägäisküste. Hätten Sie diese Woche Zeit für ein kurzes Interview?",
         lang: "German", intent: "Press", sentiment: "High value", tone: "pos", replyLang: "German",
         reply: "Guten Tag Frau Vogel, vielen Dank für Ihr Interesse an unserem Haus. Über ein Feature würden wir uns sehr freuen — Donnerstag oder Freitag würde uns gut passen. Sagen Sie uns einfach, was Ihnen lieber ist." },
-      { channel: "WhatsApp Business", name: "Sophie L.", initial: "S", meta: "+44 · new enquiry",
-        incoming: "Hi! Do you have room for a party of 12 this Friday around 8pm? It's for a birthday 🎉",
-        lang: "English", intent: "Large group", sentiment: "Booking", tone: "pos", replyLang: "English",
-        reply: "Hi Sophie! A birthday for 12 sounds wonderful — yes, we can host you this Friday at 8. I'll pencil in the terrace and note it's a celebration. Could you confirm the final headcount by Thursday so we set the table just right?" },
-      { channel: "Google review", name: "Giulia R.", initial: "G", meta: "★★★★★ · Old Town",
-        incoming: "Cena meravigliosa e vista mozzafiato al tramonto. Il personale è stato gentilissimo. Torneremo sicuramente!",
+      { channel: "WhatsApp · Hotel", name: "Sophie L.", initial: "S", meta: "+44 · Room 214",
+        incoming: "Hi! Could we get a late checkout on Sunday, and a taxi to the airport around 2pm?",
+        lang: "English", intent: "Concierge", sentiment: "In-stay", tone: "pos", replyLang: "English",
+        reply: "Hi Sophie! Happy to help — late checkout until 2pm is set for Room 214, and I've arranged a taxi to the airport for 14:00 on Sunday. Anything else to make your last day with us easier?" },
+      { channel: "Booking.com review", name: "Giulia R.", initial: "G", meta: "★★★★★ · The Marina",
+        incoming: "Camera spaziosa con una vista mozzafiato sul mare. Personale gentilissimo e colazione deliziosa. Torneremo di sicuro!",
         lang: "Italian", intent: "Praise", sentiment: "Positive", tone: "pos", replyLang: "Italian",
-        reply: "Grazie di cuore, Giulia! Siamo felicissimi che il tramonto e la nostra cucina vi abbiano conquistati. Il nostro team sarà lieto di leggere le vostre parole — vi aspettiamo presto per un altro tramonto insieme." }
+        reply: "Grazie di cuore, Giulia! Siamo felicissimi che la vista sul mare e la colazione vi abbiano conquistati. Il nostro team vi aspetta con piacere per il vostro prossimo soggiorno — a presto!" }
     ];
     var demoSection = demoRoot.closest("section") || demoRoot.parentElement;
     var q = function (k) { return demoRoot.querySelector('[data-d="' + k + '"]'); };
