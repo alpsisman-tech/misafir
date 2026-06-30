@@ -438,7 +438,7 @@
      While this is blank, forms fall back to FormSubmit (which needs each
      form activated once via its confirmation email).
      ---------------------------------------------------------------- */
-  var WEB3FORMS_KEY = "";
+  var WEB3FORMS_KEY = "7cb17fae-2d54-4bb1-bd2f-1a5f532d4593";
 
   function wireForm(formId, statusId, subjectPrefix) {
     var form = document.getElementById(formId);
