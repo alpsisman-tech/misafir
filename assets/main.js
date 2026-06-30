@@ -183,19 +183,19 @@
   var demoRoot = document.querySelector("[data-demo]");
   if (demoRoot) {
     var SCENES = [
-      { channel: "Google review", name: "Mehmet K.", initial: "M", meta: "★☆☆☆☆ · By the Sea",
+      { channel: "Google review", name: "Mehmet K.", initial: "M", meta: "★☆☆☆☆ · The Marina",
         incoming: "Manzara güzeldi ama servis çok yavaştı, bir saat bekledik. Hayal kırıklığı.",
         lang: "Turkish", intent: "Complaint", sentiment: "Negative", tone: "neg", replyLang: "Turkish",
         reply: "Merhaba Mehmet Bey, ilginiz için teşekkür ederiz. Manzaramızı beğenmenize sevindik — fakat bir saat beklemenize çok üzüldük, bu bizim standardımız değil. Ekibimizle paylaştık ve bir sonraki ziyaretinizde telafi etmek isteriz." },
-      { channel: "Email · Inbox", name: "Der Feinschmecker", initial: "D", meta: "Anna Vogel · journalist",
-        incoming: "Guten Tag, ich schreibe für Der Feinschmecker und plane ein Feature über die Ägäisküste. Hätten Sie diese Woche Zeit für ein kurzes Interview?",
+      { channel: "Email · Inbox", name: "A food magazine", initial: "F", meta: "Anna Vogel · journalist",
+        incoming: "Guten Tag, ich schreibe für ein Gourmet-Magazin und plane ein Feature über die Ägäisküste. Hätten Sie diese Woche Zeit für ein kurzes Interview?",
         lang: "German", intent: "Press", sentiment: "High value", tone: "pos", replyLang: "German",
         reply: "Guten Tag Frau Vogel, vielen Dank für Ihr Interesse an unserem Haus. Über ein Feature würden wir uns sehr freuen — Donnerstag oder Freitag würde uns gut passen. Sagen Sie uns einfach, was Ihnen lieber ist." },
       { channel: "WhatsApp Business", name: "Sophie L.", initial: "S", meta: "+44 · new enquiry",
         incoming: "Hi! Do you have room for a party of 12 this Friday around 8pm? It's for a birthday 🎉",
         lang: "English", intent: "Large group", sentiment: "Booking", tone: "pos", replyLang: "English",
         reply: "Hi Sophie! A birthday for 12 sounds wonderful — yes, we can host you this Friday at 8. I'll pencil in the terrace and note it's a celebration. Could you confirm the final headcount by Thursday so we set the table just right?" },
-      { channel: "Google review", name: "Giulia R.", initial: "G", meta: "★★★★★ · Gaia Bazaar",
+      { channel: "Google review", name: "Giulia R.", initial: "G", meta: "★★★★★ · Old Town",
         incoming: "Cena meravigliosa e vista mozzafiato al tramonto. Il personale è stato gentilissimo. Torneremo sicuramente!",
         lang: "Italian", intent: "Praise", sentiment: "Positive", tone: "pos", replyLang: "Italian",
         reply: "Grazie di cuore, Giulia! Siamo felicissimi che il tramonto e la nostra cucina vi abbiano conquistati. Il nostro team sarà lieto di leggere le vostre parole — vi aspettiamo presto per un altro tramonto insieme." }
@@ -345,8 +345,8 @@
       div.innerHTML =
         '<button type="button" class="rm" aria-label="Remove venue">×</button>' +
         '<div class="form-grid">' +
-        '<div class="field"><label>Venue name</label><input type="text" name="venue_' + vCount + '_name" data-label="Venue name" placeholder="Gaia By the Sea"></div>' +
-        '<div class="field"><label>City / area</label><input type="text" name="venue_' + vCount + '_city" data-label="City" placeholder="Alaçatı"></div>' +
+        '<div class="field"><label>Venue name</label><input type="text" name="venue_' + vCount + '_name" data-label="Venue name" placeholder="The Marina"></div>' +
+        '<div class="field"><label>City / area</label><input type="text" name="venue_' + vCount + '_city" data-label="City" placeholder="Bodrum"></div>' +
         '<div class="field full"><label>Google Maps or Business Profile link <span class="hint">so we can read its reviews</span></label><input type="url" name="venue_' + vCount + '_google" data-label="Google link" placeholder="https://maps.google.com/..."></div>' +
         '</div>';
       venueWrap.insertBefore(div, addBtn);

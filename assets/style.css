@@ -67,7 +67,7 @@ body::before{
 @keyframes mesh{from{transform:translate3d(-1.5%,-1%,0) scale(1)}to{transform:translate3d(1.5%,2%,0) scale(1.08)}}
 main,nav,footer{position:relative;z-index:1}
 
-h1,h2,h3,h4{font-family:"Space Grotesk","Inter",sans-serif;font-weight:600;line-height:1.04;letter-spacing:-0.03em;color:var(--ink)}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:600;line-height:1.04;letter-spacing:-0.03em;color:var(--ink)}
 h1{font-weight:700}
 em{font-style:normal;color:var(--brand-deep)}
 a{color:inherit;text-decoration:none}
@@ -148,8 +148,9 @@ nav.scrolled .nav-inner{
     0 4px 12px -4px rgba(16,24,21,0.12);
 }
 @media(prefers-reduced-motion:reduce){.nav-inner::before{display:none}}
-.brand{font-family:"Space Grotesk";font-size:21px;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
-.brand .mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(150deg,var(--brand),var(--brand-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:700;box-shadow:0 6px 14px -6px rgba(14,159,110,.7)}
+.brand{font-family:"Bricolage Grotesque","Inter",sans-serif;font-size:21px;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
+.brand .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--brand),var(--brand-deep));display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 6px 14px -6px rgba(14,159,110,.7);flex:none}
+.brand .mark svg{width:19px;height:19px}
 .nav-links{display:flex;gap:6px;align-items:center;font-size:15px}
 .nav-links a:not(.btn){color:var(--ink-2);padding:9px 14px;border-radius:var(--r-pill);transition:background .15s ease,color .15s ease}
 .nav-links a:not(.btn):hover{background:rgba(21,32,28,.05);color:var(--ink)}
@@ -164,7 +165,7 @@ nav.scrolled .nav-inner{
   .nav-toggle{display:block;z-index:70;margin-right:8px}
   .nav-links{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);height:100dvh;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;background:var(--bg-2);border-left:1px solid var(--line);padding:0 34px;transform:translateX(100%);transition:transform .38s var(--ease)}
   .nav-links.open{transform:translateX(0)}
-  .nav-links a:not(.btn){font-family:"Space Grotesk";font-size:22px;padding:12px 0}
+  .nav-links a:not(.btn){font-family:"Bricolage Grotesque","Inter",sans-serif;font-size:22px;padding:12px 0}
   .nav-links .btn{margin-top:14px}
 }
 
@@ -184,7 +185,7 @@ section{padding:108px 0;position:relative}
 @media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:48px}}
 .hero-copy{max-width:40ch}
 .welcome-line{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
-.welcome-word{font-family:"Space Grotesk";font-weight:600;font-size:clamp(20px,2.6vw,26px);color:var(--brand-deep);min-height:1.2em;transition:opacity .42s var(--ease),transform .42s var(--ease),filter .42s var(--ease)}
+.welcome-word{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:600;font-size:clamp(20px,2.6vw,26px);color:var(--brand-deep);min-height:1.2em;transition:opacity .42s var(--ease),transform .42s var(--ease),filter .42s var(--ease)}
 .welcome-tag{font-size:14px;color:var(--muted)}
 h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035em}
 .lede{margin-top:24px;font-size:20px;color:var(--ink-2);max-width:42ch;line-height:1.5}
@@ -240,7 +241,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .doc-head h3{font-size:22px}
 .doc-head .meta{font-size:13px;color:var(--muted);margin-top:4px}
 .doc-head .score{text-align:right;flex:none}
-.doc-head .score .n{font-family:"Space Grotesk";font-weight:700;font-size:30px;color:var(--brand-deep);line-height:1}
+.doc-head .score .n{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:700;font-size:30px;color:var(--brand-deep);line-height:1}
 .doc-head .score .s{font-size:12px;color:var(--muted)}
 .doc-sec{padding:22px 30px;border-bottom:1px solid var(--line)}
 .doc-sec:last-child{border-bottom:none}
@@ -249,7 +250,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .vrow:last-child{border-bottom:none}
 .vrow .vn{font-weight:600}
 .vrow .vt{color:var(--muted);font-size:13.5px}
-.vrow .vr{font-family:"Space Grotesk";font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
+.vrow .vr{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
 .vrow .trend{font-size:12px;font-weight:700;padding:2px 8px;border-radius:var(--r-pill)}
 .trend.up{background:var(--brand-soft);color:var(--brand-deep)}
 .trend.down{background:#FDE7E2;color:#C0432C}
@@ -272,7 +273,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 
 .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);overflow:hidden}
 .panel-top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
-.panel-top .t{font-family:"Space Grotesk";font-weight:600;font-size:16px;display:flex;align-items:center;gap:9px}
+.panel-top .t{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:600;font-size:16px;display:flex;align-items:center;gap:9px}
 .panel-top .t .ic{width:24px;height:24px;border-radius:7px;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;color:var(--brand-deep)}
 .panel-top .d{font-size:12.5px;color:var(--muted)}
 .panel-body{padding:8px 20px 18px}
@@ -298,7 +299,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .marquee{position:relative;overflow:hidden;flex:1;-webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .marquee-track{display:flex;align-items:center;gap:40px;width:max-content;animation:marquee 30s linear infinite}
 .channels:hover .marquee-track{animation-play-state:paused}
-.ch{display:flex;align-items:center;gap:9px;white-space:nowrap;color:var(--ink-2);font-weight:600;font-size:16px;font-family:"Space Grotesk"}
+.ch{display:flex;align-items:center;gap:9px;white-space:nowrap;color:var(--ink-2);font-weight:600;font-size:16px;font-family:"Bricolage Grotesque","Inter",sans-serif}
 .ch svg{width:19px;height:19px;color:var(--brand-deep)}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:600px){.channels .lbl{display:none}}
@@ -312,7 +313,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .msg-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:20px;min-height:230px;display:flex;flex-direction:column;flex:1}
 .msg-card.draft{background:linear-gradient(180deg,#fff,var(--brand-soft));border-color:var(--brand-soft-2)}
 .msg-head{display:flex;gap:11px;align-items:center;margin-bottom:13px}
-.avatar{width:38px;height:38px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk";font-weight:600;font-size:16px;color:#fff;background:linear-gradient(150deg,var(--sky),#5C97A8)}
+.avatar{width:38px;height:38px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:600;font-size:16px;color:#fff;background:linear-gradient(150deg,var(--sky),#5C97A8)}
 .avatar.bot{background:linear-gradient(150deg,var(--brand),var(--brand-deep))}
 .msg-name{font-weight:600;font-size:15px}
 .msg-meta{font-size:12.5px;color:var(--muted)}
@@ -383,7 +384,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .approve-viz .txt{flex:1;font-size:13px;color:var(--ink-2)}
 .approve-viz .sw{width:44px;height:25px;border-radius:var(--r-pill);background:var(--brand);position:relative;flex:none}
 .approve-viz .sw::after{content:"";position:absolute;top:3px;left:3px;width:19px;height:19px;border-radius:50%;background:#fff;animation:toggle 3s var(--ease) infinite}
-.cycle{margin-top:18px;display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:600;font-size:24px;color:var(--brand-deep);min-height:1.4em}
+.cycle{margin-top:18px;display:flex;align-items:center;gap:10px;font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:600;font-size:24px;color:var(--brand-deep);min-height:1.4em}
 .cycle .w{transition:opacity .4s var(--ease),transform .4s var(--ease)}
 .cycle .flag{font-size:20px}
 .live-dot{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--brand-deep)}
@@ -398,7 +399,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 @media(max-width:520px){.steps{grid-template-columns:1fr}}
 .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .step:hover{transform:translateY(-4px);box-shadow:var(--sh)}
-.step .n{width:38px;height:38px;border-radius:11px;background:var(--brand-soft);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk";font-weight:700;margin-bottom:16px}
+.step .n{width:38px;height:38px;border-radius:11px;background:var(--brand-soft);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:700;margin-bottom:16px}
 .step .n::before{counter-increment:s;content:counter(s)}
 .step h3{font-size:18px;margin-bottom:7px}
 .step p{font-size:14.5px;color:var(--muted)}
@@ -407,7 +408,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 @media(max-width:780px){.stats{grid-template-columns:repeat(2,1fr)}}
 .stat{text-align:center;padding:14px}
-.stat .big{font-family:"Space Grotesk";font-weight:700;font-size:clamp(38px,5vw,56px);letter-spacing:-0.04em;color:var(--brand-deep);line-height:1}
+.stat .big{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:700;font-size:clamp(38px,5vw,56px);letter-spacing:-0.04em;color:var(--brand-deep);line-height:1}
 .stat .lbl{margin-top:10px;font-size:14.5px;color:var(--muted)}
 
 /* ---------- pricing ---------- */
@@ -429,7 +430,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .tier .who{color:var(--muted);font-size:14.5px;margin-bottom:22px;min-height:2.7em}
 .price{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
 .price .from{font-size:13px;color:var(--muted)}
-.price .amt{font-family:"Space Grotesk";font-weight:700;font-size:44px;letter-spacing:-0.03em}
+.price .amt{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:700;font-size:44px;letter-spacing:-0.03em}
 .price .per{font-size:14px;color:var(--muted)}
 .setup{font-size:13.5px;color:var(--muted);margin-bottom:22px}
 .tier ul{list-style:none;margin-bottom:26px;flex:1}
@@ -444,7 +445,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .faq{max-width:760px;margin:0 auto}
 .faq details{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;box-shadow:var(--sh-sm);transition:box-shadow .2s ease}
 .faq details[open]{box-shadow:var(--sh)}
-.faq summary{cursor:pointer;list-style:none;padding:22px 54px 22px 22px;font-family:"Space Grotesk";font-weight:600;font-size:19px;position:relative}
+.faq summary{cursor:pointer;list-style:none;padding:22px 54px 22px 22px;font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:600;font-size:19px;position:relative}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";position:absolute;right:22px;top:18px;font-size:26px;color:var(--brand);transition:transform .25s var(--ease)}
 .faq details[open] summary::after{transform:rotate(45deg)}
@@ -513,7 +514,7 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 .review-list .rv{color:var(--ink);text-align:right;font-weight:500}
 
 /* ---------- belief / quote ---------- */
-.belief blockquote{font-family:"Space Grotesk";font-weight:600;font-size:clamp(28px,4vw,46px);line-height:1.12;letter-spacing:-0.03em;max-width:18ch;margin:0 auto;text-align:center}
+.belief blockquote{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:600;font-size:clamp(28px,4vw,46px);line-height:1.12;letter-spacing:-0.03em;max-width:18ch;margin:0 auto;text-align:center}
 .belief .by{text-align:center;margin-top:24px;color:var(--muted);font-size:15px}
 
 /* ---------- CTA band ---------- */
