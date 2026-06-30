@@ -429,28 +429,59 @@
      Destination assembled at runtime from base64 so it is never
      plain text in the source.
      ============================================================ */
+  /* ----------------------------------------------------------------
+     Email delivery key.
+     PASTE A FREE WEB3FORMS ACCESS KEY HERE to make every form deliver
+     instantly and reliably (no per-form activation, your address stays
+     hidden). Get one in ~30s — no signup: go to https://web3forms.com,
+     enter alp.sisman@gmail.com, and copy the access key it emails you.
+     While this is blank, forms fall back to FormSubmit (which needs each
+     form activated once via its confirmation email).
+     ---------------------------------------------------------------- */
+  var WEB3FORMS_KEY = "";
+
   function wireForm(formId, statusId, subjectPrefix) {
     var form = document.getElementById(formId);
     if (!form) return;
-    var dest; try { dest = window.atob("YWxwLnNpc21hbkBnbWFpbC5jb20="); } catch (e) { dest = ""; }
-    var endpoint = "https://formsubmit.co/ajax/" + dest;
     var status = document.getElementById(statusId);
     var btn = form.querySelector("[type=submit]");
     var btnLabel = btn ? btn.innerHTML : "";
     var setStatus = function (msg, ok) { if (!status) return; status.className = "form-status " + (ok ? "ok" : "warn"); status.textContent = msg; };
+
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var data = new FormData(form);
       var who = (data.get("venue") || data.get("group") || data.get("name") || "Misafir").toString().trim();
-      data.append("_subject", subjectPrefix + " — " + who);
-      data.append("_template", "table");
-      data.append("_captcha", "false");
+      var endpoint;
+
+      if (WEB3FORMS_KEY) {
+        endpoint = "https://api.web3forms.com/submit";
+        data.append("access_key", WEB3FORMS_KEY);
+        data.append("subject", subjectPrefix + " — " + who);
+        data.append("from_name", "Misafir website");
+      } else {
+        var dest; try { dest = window.atob("YWxwLnNpc21hbkBnbWFpbC5jb20="); } catch (e) { dest = ""; }
+        endpoint = "https://formsubmit.co/ajax/" + dest;
+        data.append("_subject", subjectPrefix + " — " + who);
+        data.append("_template", "table");
+        data.append("_captcha", "false");
+      }
+
       if (btn) { btn.disabled = true; btn.innerHTML = "Sending…"; }
       setStatus("Sending…", true);
+
       fetch(endpoint, { method: "POST", headers: { "Accept": "application/json" }, body: data })
-        .then(function (r) { if (!r.ok) throw new Error("bad"); return r.json().catch(function () { return {}; }); })
-        .then(function () { form.reset(); document.querySelectorAll(".check.on").forEach(function (c) { c.classList.remove("on"); }); setStatus(form.getAttribute("data-success") || "Thank you — your details are on their way. We'll be in touch shortly.", true); })
-        .catch(function () { setStatus("Sorry, that didn't send. Please try again in a moment.", false); })
+        .then(function (r) { return r.json().catch(function () { return r.ok ? { success: true } : { success: false }; }); })
+        .then(function (j) {
+          // Honour the service's own success flag (FormSubmit/Web3Forms return
+          // success:false when a submission is rejected or pending activation).
+          var ok = j && (j.success === true || j.success === "true");
+          if (!ok) throw new Error((j && (j.message || j.error)) || "not delivered");
+          form.reset();
+          document.querySelectorAll(".check.on").forEach(function (c) { c.classList.remove("on"); });
+          setStatus(form.getAttribute("data-success") || "Thank you — your details are on their way. We'll be in touch shortly.", true);
+        })
+        .catch(function () { setStatus("Hmm — that didn't go through. Please try again in a moment.", false); })
         .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = btnLabel; } });
     });
   }
