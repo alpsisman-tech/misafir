@@ -21,6 +21,11 @@
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
   if (toggle && links) {
+    var closeMenu = function () {
+      links.classList.remove("open"); toggle.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    };
     toggle.addEventListener("click", function () {
       var open = links.classList.toggle("open");
       toggle.classList.toggle("open", open);
@@ -28,11 +33,12 @@
       document.body.style.overflow = open ? "hidden" : "";
     });
     links.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        links.classList.remove("open"); toggle.classList.remove("open");
-        document.body.style.overflow = "";
-      });
+      a.addEventListener("click", closeMenu);
     });
+    // tap the dimmed area (the drawer scrim) to close
+    links.addEventListener("click", function (e) { if (e.target === links) closeMenu(); });
+    // Esc closes
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && links.classList.contains("open")) closeMenu(); });
   }
 
   /* ---- highlight current page ---- */

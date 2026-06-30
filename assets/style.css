@@ -162,11 +162,22 @@ nav.scrolled .nav-inner{
 .nav-toggle.open span:nth-child(2){opacity:0}
 .nav-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 @media(max-width:840px){
-  .nav-toggle{display:block;z-index:70;margin-right:8px}
-  .nav-links{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);height:100dvh;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;background:var(--bg-2);border-left:1px solid var(--line);padding:0 34px;transform:translateX(100%);transition:transform .38s var(--ease)}
-  .nav-links.open{transform:translateX(0)}
-  .nav-links a:not(.btn){font-family:"Bricolage Grotesque","Inter",sans-serif;font-size:22px;padding:12px 0}
-  .nav-links .btn{margin-top:14px}
+  /* on mobile the nav bar must NOT be a containing block (backdrop-filter) or
+     clip (overflow) the fixed menu, and must not paint the liquid sheen */
+  .nav-inner{overflow:visible;backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(251,250,246,0.96);box-shadow:var(--sh-sm)}
+  .nav-inner::before,.nav-inner::after{display:none}
+  nav.scrolled .nav-inner{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(251,250,246,0.98);box-shadow:var(--sh)}
+  /* these selectors match the .nav-inner … z-index helper's specificity and come
+     later, so they actually win (the toggle must sit ABOVE the open menu, and the
+     menu must be genuinely fixed rather than the helper's position:relative) */
+  .nav-inner .nav-toggle{display:block;z-index:80;margin-right:8px}
+  .nav-inner .nav-links{position:fixed;inset:0;width:100%;height:100vh;height:100svh;
+    flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;
+    background:var(--bg-2);padding:0 40px;
+    transform:translateX(100%);transition:transform .38s var(--ease);z-index:70}
+  .nav-inner .nav-links.open{transform:translateX(0)}
+  .nav-links a:not(.btn){font-family:"Bricolage Grotesque","Inter",sans-serif;font-size:26px;padding:14px 0}
+  .nav-links .btn{margin-top:18px}
 }
 
 /* ---------- section rhythm ---------- */
@@ -454,14 +465,16 @@ h1.title{font-size:clamp(40px,4.9vw,60px);line-height:1.03;letter-spacing:-0.035
 /* ---------- forms (contact + onboarding) ---------- */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:680px){.form-grid{grid-template-columns:1fr}}
-.field{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
 .field.full{grid-column:1 / -1}
 .field label{font-size:14px;font-weight:600;color:var(--ink)}
 .field .hint{font-size:12.5px;color:var(--muted);font-weight:400}
 .field input,.field select,.field textarea{
+  width:100%;min-width:0;max-width:100%;
   background:var(--card);border:1px solid var(--line-2);border-radius:12px;color:var(--ink);
   font-family:inherit;font-size:15.5px;padding:13px 15px;transition:border-color .2s ease,box-shadow .2s ease;
 }
+.field select{text-overflow:ellipsis}
 .field textarea{resize:vertical;min-height:120px}
 .field input::placeholder,.field textarea::placeholder{color:#9AA7A1}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(14,159,110,.13)}
