@@ -426,13 +426,24 @@
       <span class="eyebrow"><span class="dot"></span>Pricing</span>
       <h2>Begin with a pilot. Grow when it earns it.</h2>
     </div>
+    <div class="aud pricing-toggle reveal" role="tablist">
+      <button class="on" type="button" data-price="rest"><span class="e">🍷</span> Restaurants</button>
+      <button type="button" data-price="hotel"><span class="e">🏨</span> Hotels</button>
+    </div>
     <div class="tiers">
       <div class="tier feature reveal">
         <div class="rec">Recommended start</div>
         <h3>Front Desk</h3>
         <div class="who">Reviews and guest messages — the daily noise, handled.</div>
-        <div class="price"><span class="from">from</span><span class="amt">£99</span><span class="per">/ mo</span></div>
-        <div class="setup">+ £250 setup · up to 3 venues</div>
+        <div class="price-block" data-mode="rest">
+          <div class="price"><span class="from">from</span><span class="amt">£99</span><span class="per">/ mo</span></div>
+          <div class="setup">+ £250 setup · up to 3 venues</div>
+        </div>
+        <div class="price-block" data-mode="hotel" hidden>
+          <div class="price"><span class="amt">£3</span><span class="per">/ room / mo</span></div>
+          <div class="floor">£79/mo minimum</div>
+          <div class="setup">+ £250 setup · per hotel</div>
+        </div>
         <ul>
           <li>Google review monitoring &amp; drafted replies</li>
           <li>WhatsApp &amp; email triage</li>
@@ -445,8 +456,15 @@
         <div class="rec alt">More cover</div>
         <h3>Front of House</h3>
         <div class="who">Adds reservations and your social presence.</div>
-        <div class="price"><span class="from">from</span><span class="amt">£199</span><span class="per">/ mo</span></div>
-        <div class="setup">+ £500 setup · up to 3 venues</div>
+        <div class="price-block" data-mode="rest">
+          <div class="price"><span class="from">from</span><span class="amt">£199</span><span class="per">/ mo</span></div>
+          <div class="setup">+ £500 setup · up to 3 venues</div>
+        </div>
+        <div class="price-block" data-mode="hotel" hidden>
+          <div class="price"><span class="amt">£5</span><span class="per">/ room / mo</span></div>
+          <div class="floor">£149/mo minimum</div>
+          <div class="setup">+ £500 setup · per hotel</div>
+        </div>
         <ul>
           <li>Everything in Front Desk</li>
           <li>Booking reminders &amp; follow-ups</li>
@@ -459,8 +477,15 @@
         <div class="rec alt">The full house</div>
         <h3>Maison</h3>
         <div class="who">Everything, plus a weekly read for the owner.</div>
-        <div class="price"><span class="from">from</span><span class="amt">£349</span><span class="per">/ mo</span></div>
-        <div class="setup">+ £900 setup · multi-venue</div>
+        <div class="price-block" data-mode="rest">
+          <div class="price"><span class="from">from</span><span class="amt">£349</span><span class="per">/ mo</span></div>
+          <div class="setup">+ £900 setup · multi-venue</div>
+        </div>
+        <div class="price-block" data-mode="hotel" hidden>
+          <div class="price"><span class="amt">£7</span><span class="per">/ room / mo</span></div>
+          <div class="floor">£249/mo minimum</div>
+          <div class="setup">+ £900 setup · per hotel</div>
+        </div>
         <ul>
           <li>Everything in Front of House</li>
           <li>Weekly owner's brief</li>

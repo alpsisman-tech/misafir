@@ -211,6 +211,20 @@
     });
   }
 
+  /* ---- pricing: restaurants (flat) vs hotels (per-room) toggle ---- */
+  var priceBtns = document.querySelectorAll("[data-price]");
+  if (priceBtns.length) {
+    var setPriceMode = function (mode) {
+      priceBtns.forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-price") === mode); });
+      document.querySelectorAll(".price-block").forEach(function (pb) {
+        pb.hidden = pb.getAttribute("data-mode") !== mode;
+      });
+    };
+    priceBtns.forEach(function (b) {
+      b.addEventListener("click", function () { setPriceMode(b.getAttribute("data-price")); });
+    });
+  }
+
   /* ============================================================
      Interactive "see it work" demo
      ============================================================ */

@@ -40,13 +40,24 @@
 
 <section style="padding:24px 0 100px">
   <div class="wrap">
+    <div class="aud pricing-toggle reveal" role="tablist">
+      <button class="on" type="button" data-price="rest"><span class="e">🍷</span> Restaurants</button>
+      <button type="button" data-price="hotel"><span class="e">🏨</span> Hotels</button>
+    </div>
     <div class="tiers">
       <div class="tier feature reveal">
         <div class="rec">Recommended start</div>
         <h3>Front Desk</h3>
         <div class="who">Reviews and guest messages — the daily noise, handled.</div>
-        <div class="price"><span class="from">from</span><span class="amt">£99</span><span class="per">/ mo</span></div>
-        <div class="setup">+ £250 setup · up to 3 venues</div>
+        <div class="price-block" data-mode="rest">
+          <div class="price"><span class="from">from</span><span class="amt">£99</span><span class="per">/ mo</span></div>
+          <div class="setup">+ £250 setup · up to 3 venues</div>
+        </div>
+        <div class="price-block" data-mode="hotel" hidden>
+          <div class="price"><span class="amt">£3</span><span class="per">/ room / mo</span></div>
+          <div class="floor">£79/mo minimum</div>
+          <div class="setup">+ £250 setup · per hotel</div>
+        </div>
         <ul>
           <li>Google review monitoring &amp; drafted replies</li>
           <li>WhatsApp &amp; email triage</li>
@@ -62,8 +73,15 @@
         <div class="rec alt">More cover</div>
         <h3>Front of House</h3>
         <div class="who">Adds reservations and your social presence.</div>
-        <div class="price"><span class="from">from</span><span class="amt">£199</span><span class="per">/ mo</span></div>
-        <div class="setup">+ £500 setup · up to 3 venues</div>
+        <div class="price-block" data-mode="rest">
+          <div class="price"><span class="from">from</span><span class="amt">£199</span><span class="per">/ mo</span></div>
+          <div class="setup">+ £500 setup · up to 3 venues</div>
+        </div>
+        <div class="price-block" data-mode="hotel" hidden>
+          <div class="price"><span class="amt">£5</span><span class="per">/ room / mo</span></div>
+          <div class="floor">£149/mo minimum</div>
+          <div class="setup">+ £500 setup · per hotel</div>
+        </div>
         <ul>
           <li>Everything in Front Desk</li>
           <li>Booking reminders &amp; no-show follow-ups</li>
@@ -78,8 +96,15 @@
         <div class="rec alt">The full house</div>
         <h3>Maison</h3>
         <div class="who">Everything, plus a weekly read for the owner.</div>
-        <div class="price"><span class="from">from</span><span class="amt">£349</span><span class="per">/ mo</span></div>
-        <div class="setup">+ £900 setup · multi-venue</div>
+        <div class="price-block" data-mode="rest">
+          <div class="price"><span class="from">from</span><span class="amt">£349</span><span class="per">/ mo</span></div>
+          <div class="setup">+ £900 setup · multi-venue</div>
+        </div>
+        <div class="price-block" data-mode="hotel" hidden>
+          <div class="price"><span class="amt">£7</span><span class="per">/ room / mo</span></div>
+          <div class="floor">£249/mo minimum</div>
+          <div class="setup">+ £900 setup · per hotel</div>
+        </div>
         <ul>
           <li>Everything in Front of House</li>
           <li>Weekly owner's intelligence brief</li>
@@ -91,7 +116,7 @@
         <a href="contact.html" class="btn btn-ghost btn-block">Talk to us</a>
       </div>
     </div>
-    <p class="pricing-note">Every venue starts with a short pilot. No long contracts — stay because it works.</p>
+    <p class="pricing-note">Restaurants pay a flat rate per venue; hotels pay per room with a monthly minimum. Every place starts with a short pilot — no long contracts.</p>
   </div>
 </section>
 
@@ -130,7 +155,7 @@
     <div class="faq reveal">
       <details open><summary>What happens during the pilot?</summary><div class="ans">We set Misafir up on one venue and run it for a week — watching reviews and messages, drafting replies, and sending you a brief. You see exactly what it produces on your real guests before any money or commitment changes hands.</div></details>
       <details><summary>Will it ever reply to a guest without me seeing it?</summary><div class="ans">No. Every reply, post and message is a draft until a person approves it. The human gate is built in and never comes off.</div></details>
-      <details><summary>Are these the final prices?</summary><div class="ans">They're a starting point. Final pricing depends on your market and currency (GBP, EUR or TRY) and whether you're a single venue or a group. We'll quote clearly before you decide.</div></details>
+      <details><summary>How does hotel (per-room) pricing work?</summary><div class="ans">Restaurants pay a flat monthly rate per venue. Hotels pay per room per month — £3 / £5 / £7 depending on the tier — with a monthly minimum so small properties and large ones are both fairly priced. Use the toggle above to compare. Final pricing also depends on your market and currency (GBP, EUR or TRY); we'll quote clearly before you decide.</div></details>
       <details><summary>Which languages can it handle?</summary><div class="ans">Turkish, English, German and many more out of the box — it replies in whatever language the guest wrote in. Multilingual drafting is the core of what Misafir does.</div></details>
       <details><summary>Do I need to change my booking system or tools?</summary><div class="ans">No rip-and-replace. Misafir reads the channels you already run. For reservations we scope your existing setup with you first.</div></details>
       <details><summary>What about my guests' data?</summary><div class="ans">We build with EU GDPR and Turkey's KVKK in mind — a clear basis for processing and care over what's stored and where. We'll walk through it before the pilot.</div></details>

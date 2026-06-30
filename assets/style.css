@@ -699,3 +699,9 @@ footer{padding:60px 0 36px;color:var(--muted);font-size:14.5px;margin-top:80px;b
 
 /* founding badge a touch richer */
 .founding{background:linear-gradient(180deg,#ffffff,#FAF8F3)}
+
+/* pricing restaurants/hotels toggle */
+.price-block[hidden]{display:none}
+.pricing-toggle{margin-bottom:34px}
+.tier .floor{font-size:12.5px;color:var(--muted);margin:-2px 0 4px}
+.tier.feature .floor{color:#BFE0CF}
