@@ -790,3 +790,7 @@ footer{border-top:none;padding:0 16px 26px;margin-top:96px;color:#BFE0CF;font-si
 .foot-card .col a.foot-cta{display:inline-flex;width:auto;color:var(--brand-ink);padding:13px 22px}
 .foot-card .col a.foot-cta:hover{color:var(--brand-ink);transform:translateY(-2px)}
 @media(max-width:720px){.foot-card .foot-about{grid-column:1 / -1}}
+
+/* footer legal links (added with legal pages) */
+.foot-card .foot-bottom .legal a{color:#CDE7D8;text-decoration:none;transition:color .15s ease}
+.foot-card .foot-bottom .legal a:hover{color:#fff;text-decoration:underline}

@@ -231,10 +231,10 @@
   var demoRoot = document.querySelector("[data-demo]");
   if (demoRoot) {
     var SCENES = [
-      { channel: "Google review", name: "Mehmet K.", initial: "M", meta: "★☆☆☆☆ · The Marina",
+      { channel: "Google review", name: "Kerem T.", initial: "K", meta: "★☆☆☆☆ · The Marina",
         incoming: "Manzara güzeldi ama servis çok yavaştı, bir saat bekledik. Hayal kırıklığı.",
         lang: "Turkish", intent: "Complaint", sentiment: "Negative", tone: "neg", replyLang: "Turkish",
-        reply: "Merhaba Mehmet Bey, ilginiz için teşekkür ederiz. Manzaramızı beğenmenize sevindik — fakat bir saat beklemenize çok üzüldük, bu bizim standardımız değil. Ekibimizle paylaştık ve bir sonraki ziyaretinizde telafi etmek isteriz." },
+        reply: "Merhaba Kerem Bey, ilginiz için teşekkür ederiz. Manzaramızı beğenmenize sevindik — fakat bir saat beklemenize çok üzüldük, bu bizim standardımız değil. Ekibimizle paylaştık ve bir sonraki ziyaretinizde telafi etmek isteriz." },
       { channel: "Email · Inbox", name: "A food magazine", initial: "F", meta: "Anna Vogel · journalist",
         incoming: "Guten Tag, ich schreibe für ein Gourmet-Magazin und plane ein Feature über die Ägäisküste. Hätten Sie diese Woche Zeit für ein kurzes Interview?",
         lang: "German", intent: "Press", sentiment: "High value", tone: "pos", replyLang: "German",
@@ -454,7 +454,7 @@
      PASTE A FREE WEB3FORMS ACCESS KEY HERE to make every form deliver
      instantly and reliably (no per-form activation, your address stays
      hidden). Get one in ~30s — no signup: go to https://web3forms.com,
-     enter alp.sisman@gmail.com, and copy the access key it emails you.
+     enter your own email address, and copy the access key it emails you.
      While this is blank, forms fall back to FormSubmit (which needs each
      form activated once via its confirmation email).
      ---------------------------------------------------------------- */
