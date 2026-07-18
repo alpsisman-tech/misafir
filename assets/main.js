@@ -6,6 +6,8 @@
   "use strict";
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.documentElement.classList.add("js");
+  try { var __rv = function(){ var n = document.querySelectorAll('.rv:not(.in),.reveal:not(.in),.stagger:not(.in)'); for (var i=0;i<n.length;i++) n[i].classList.add('in'); }; setTimeout(__rv, 1400); window.addEventListener('load', function(){ setTimeout(__rv, 250); }); } catch(e){}
+
 
   /* ---- nav: condense on scroll ---- */
   var nav = document.querySelector("nav");
