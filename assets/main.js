@@ -129,6 +129,43 @@
     hero.addEventListener("pointerleave", function () { px = 0; py = 0; if (!raf) raf = requestAnimationFrame(loop); });
   }
 
+  /* ---- hero panel: multilingual "good morning" greeting ---- */
+  var pgWord = document.querySelector("[data-greet]");
+  if (pgWord && !reduce) {
+    var pgFlag = document.querySelector("[data-greet-flag]");
+    var greets = [
+      ["🇹🇷", "Günaydın"], ["🇬🇧", "Good morning"], ["🇩🇪", "Guten Morgen"],
+      ["🇮🇹", "Buongiorno"], ["🇫🇷", "Bonjour"], ["🇬🇷", "Καλημέρα"]
+    ];
+    var gi = 0;
+    setInterval(function () {
+      pgWord.style.opacity = 0; pgWord.style.transform = "translateY(-6px)";
+      setTimeout(function () {
+        gi = (gi + 1) % greets.length;
+        pgWord.textContent = greets[gi][1];
+        if (pgFlag) pgFlag.textContent = greets[gi][0];
+        pgWord.style.opacity = 1; pgWord.style.transform = "none";
+      }, 400);
+    }, 2800);
+  }
+
+  /* ---- staggered entrances for chip / list groups ---- */
+  var stg = document.querySelectorAll(".callout .langs, .next-flow, .demo-langs, .reassure");
+  if (stg.length) {
+    stg.forEach(function (g) {
+      g.classList.add("stagger");
+      Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty("--i", i); });
+    });
+    if (reduce || !("IntersectionObserver" in window)) {
+      stg.forEach(function (g) { g.classList.add("in"); });
+    } else {
+      var sio = new IntersectionObserver(function (en) {
+        en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); sio.unobserve(e.target); } });
+      }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
+      stg.forEach(function (g) { sio.observe(g); });
+    }
+  }
+
   /* ---- channel marquee ---- */
   var track = document.querySelector(".marquee-track");
   if (track && !reduce) { track.innerHTML = track.innerHTML + track.innerHTML; }
@@ -349,11 +386,20 @@
       steps[n].querySelectorAll("input[required],select[required],textarea[required]").forEach(function (f) {
         var valid = f.value && f.value.trim() !== "";
         if (f.type === "email") valid = valid && /.+@.+\..+/.test(f.value);
-        f.style.borderColor = valid ? "" : "var(--coral)";
-        if (!valid && ok) { ok = false; f.focus(); }
+        f.classList.toggle("invalid", !valid);
+        if (!valid) {
+          var fld = f.closest(".field");
+          if (fld) { fld.classList.remove("shake"); void fld.offsetWidth; fld.classList.add("shake"); }
+          if (ok) { ok = false; f.focus(); }
+        }
       });
       return ok;
     };
+
+    /* clear the invalid state as soon as the guest starts fixing it */
+    wiz.addEventListener("input", function (e) {
+      if (e.target.classList && e.target.classList.contains("invalid")) e.target.classList.remove("invalid");
+    });
 
     nextBtn.addEventListener("click", function () { if (validateStep(cur)) showStep(Math.min(cur + 1, steps.length - 1), true); });
     backBtn.addEventListener("click", function () { showStep(Math.max(cur - 1, 0), true); });
@@ -419,6 +465,12 @@
       var chans = [];
       form.querySelectorAll('.check input:checked').forEach(function (c) { chans.push(c.getAttribute("data-chan") || c.value); });
       if (chans.length) addRow(box, "Channels", chans.join(", "));
+      if (!box.children.length) {
+        var e = document.createElement("div"); e.className = "review-empty";
+        e.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>' +
+          '<span>Nothing filled in yet — step back to add your details.</span>';
+        box.appendChild(e);
+      }
     }
     function addRow(box, k, v) {
       var row = document.createElement("div"); row.className = "rrow";
@@ -446,16 +498,53 @@
      ---------------------------------------------------------------- */
   var WEB3FORMS_KEY = "7cb17fae-2d54-4bb1-bd2f-1a5f532d4593";
 
+  var FS_OK = '<svg class="fs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>';
+  var FS_WARN = '<svg class="fs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>';
+
   function wireForm(formId, statusId, subjectPrefix) {
     var form = document.getElementById(formId);
     if (!form) return;
     var status = document.getElementById(statusId);
+    if (status) { status.setAttribute("role", "status"); status.setAttribute("aria-live", "polite"); }
     var btn = form.querySelector("[type=submit]");
     var btnLabel = btn ? btn.innerHTML : "";
-    var setStatus = function (msg, ok) { if (!status) return; status.className = "form-status " + (ok ? "ok" : "warn"); status.textContent = msg; };
+    var setStatus = function (msg, ok, loading) {
+      if (!status) return;
+      status.className = "form-status " + (ok ? "ok" : "warn");
+      status.innerHTML = (loading ? "" : (ok ? FS_OK : FS_WARN)) + "<span>" + msg + "</span>";
+    };
+    var setLoading = function (on) {
+      if (!btn) return;
+      btn.disabled = on;
+      btn.classList.toggle("is-loading", on);
+      btn.innerHTML = on ? '<span class="spin"></span><span class="btn-txt">Sending…</span>' : btnLabel;
+    };
+    /* clear a field's error the moment it's edited */
+    form.addEventListener("input", function (e) {
+      if (e.target.classList && e.target.classList.contains("invalid")) e.target.classList.remove("invalid");
+    });
 
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
+
+      /* the contact form runs its own required-field check (the wizard has its own) */
+      if (formId === "contact-form") {
+        var firstBad = null;
+        form.querySelectorAll("[required]").forEach(function (f) {
+          var good = f.value && f.value.trim() !== "";
+          if (f.type === "email") good = good && /.+@.+\..+/.test(f.value);
+          f.classList.toggle("invalid", !good);
+          if (!good && !firstBad) firstBad = f;
+        });
+        if (firstBad) {
+          setStatus("Please fill in the highlighted fields, then send.", false);
+          firstBad.focus();
+          var fld = firstBad.closest(".field");
+          if (fld) { fld.classList.remove("shake"); void fld.offsetWidth; fld.classList.add("shake"); }
+          return;
+        }
+      }
+
       var data = new FormData(form);
       var who = (data.get("venue") || data.get("group") || data.get("name") || "Misafir").toString().trim();
       var endpoint;
@@ -473,8 +562,8 @@
         data.append("_captcha", "false");
       }
 
-      if (btn) { btn.disabled = true; btn.innerHTML = "Sending…"; }
-      setStatus("Sending…", true);
+      setLoading(true);
+      setStatus("Sending…", true, true);
 
       fetch(endpoint, { method: "POST", headers: { "Accept": "application/json" }, body: data })
         .then(function (r) { return r.json().catch(function () { return r.ok ? { success: true } : { success: false }; }); })
@@ -488,7 +577,7 @@
           setStatus(form.getAttribute("data-success") || "Thank you — your details are on their way. We'll be in touch shortly.", true);
         })
         .catch(function () { setStatus("Hmm — that didn't go through. Please try again in a moment.", false); })
-        .then(function () { if (btn) { btn.disabled = false; btn.innerHTML = btnLabel; } });
+        .then(function () { setLoading(false); });
     });
   }
   wireForm("contact-form", "form-status", "New pilot enquiry");

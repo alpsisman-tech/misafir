@@ -718,3 +718,113 @@ footer{border-top:none;padding:0 16px 26px;margin-top:96px;color:rgba(255,255,25
 
 /* small label / summary type */
 .foot-grid .col h4,.doc-sec h4,.aside-card .item .k,.field label,.stage-label b,.wiz-steps .s{font-family:var(--font)}
+
+/* ============================================================
+   CRAFT PASS v2 — "bolder evolution" (Seam Studio DNA, amplified)
+   Spring-settle reveals, richer dark panels, crafted
+   micro-interactions, real form states. Transform/opacity motion
+   only; every non-essential animation is reduced-motion safe.
+   ============================================================ */
+:root{ --ease-out-expo:cubic-bezier(.16,1,.3,1); }
+
+/* ---------- type: a touch more confidence ---------- */
+h1.title{letter-spacing:-.05em}
+.page-hero h1{letter-spacing:-.052em}
+.lede,.callout p,.sec-head p,.tile p,.aud-card li,.foryou li{text-wrap:pretty}
+
+/* ---------- reveal: expo settle (no bounce on fades), lighter blur ---------- */
+.js .reveal{transform:translateY(28px);filter:blur(3px);
+  transition:opacity .78s var(--ease-out-expo),transform .78s var(--ease-out-expo),filter .78s var(--ease-out-expo)}
+
+/* ---------- staggered chip / list entrances (--i set in JS) ---------- */
+.js .stagger>*{opacity:0;transform:translateY(14px) scale(.98);
+  transition:opacity .55s var(--ease-out-expo) calc(var(--i,0)*55ms + 40ms),
+             transform .55s var(--ease-out-expo) calc(var(--i,0)*55ms + 40ms)}
+.js .stagger.in>*{opacity:1;transform:none}
+
+/* ---------- buttons: respond on press (Apple: feedback on pointer-down) ---------- */
+.btn:active{transform:scale(.965);transition:transform .09s ease-out}
+.btn-lg:active{transform:scale(.975)}
+.btn .spin{display:none;width:15px;height:15px;border-radius:50%;flex:none;
+  border:2px solid rgba(255,255,255,.32);border-top-color:#fff;animation:spin .6s linear infinite}
+.btn.is-loading{pointer-events:none}
+.btn.is-loading .spin{display:inline-block}
+.cta .btn:not(.btn-ghost) .spin,.foot-cta .spin{border-color:rgba(19,19,19,.28);border-top-color:var(--ink)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- nav: lime underline grows from centre ---------- */
+.nav-links a:not(.btn){position:relative}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;
+  border-radius:2px;background:var(--lime);transform:scaleX(0);transform-origin:center;
+  transition:transform .3s var(--ease-out-expo)}
+.nav-links a:not(.btn):hover{color:var(--ink)}
+.nav-links a:not(.btn):hover::after,.nav-links a:not(.btn):focus-visible::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--ink)}
+.nav-links a.active::after{transform:scaleX(1);background:var(--ink)}
+@media(max-width:840px){.nav-links a:not(.btn)::after{display:none}}
+
+/* ---------- tiles / cards: crafted hover (lime top edge + press) ---------- */
+.tile::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--lime),transparent);
+  opacity:0;transform:scaleX(.35);transform-origin:center;
+  transition:opacity .38s var(--ease-out-expo),transform .38s var(--ease-out-expo)}
+.tile:hover::after{opacity:1;transform:scaleX(1)}
+.tile:active,.step:active,.stat:active,.aud-card:active,.mcard:active{transform:translateY(-2px) scale(.995)}
+
+/* ---------- language chips: hover lift + hairline warms to lime ---------- */
+.callout .langs span{transition:transform .3s var(--ease-out-expo),border-color .3s var(--ease-out-expo),box-shadow .3s var(--ease-out-expo)}
+.callout .langs span:hover{transform:translateY(-3px);border-color:var(--lime-border);box-shadow:var(--sh-sm)}
+
+/* ---------- demo + toggles: press feedback ---------- */
+.demo-langs button:active,.aud button:active,.mini-approve:active,.add-venue:active,.cc-btn:active{transform:scale(.96)}
+
+/* ---------- FAQ: smooth answer reveal + steadier marker ---------- */
+@keyframes ansIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.faq details[open] .ans{animation:ansIn .34s var(--ease-out-expo)}
+.faq summary::after{transition:transform .3s var(--ease-out-expo),background .2s ease}
+.faq details[open]:hover summary::after{background:var(--ink)}
+
+/* ---------- hero morning-brief panel: richer depth + greeting ---------- */
+.panel::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(130% 62% at 50% -10%,rgba(210,255,55,.12),transparent 58%)}
+.panel>*{position:relative;z-index:1}
+.panel-greet{display:flex;align-items:center;gap:11px;padding:15px 20px 3px}
+.panel-greet .pg-flag{width:30px;height:30px;border-radius:9px;flex:none;font-size:16px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center}
+.panel-greet .pg-word{font-weight:600;font-size:18.5px;letter-spacing:-.03em;color:#fff;
+  transition:opacity .4s var(--ease-out-expo),transform .4s var(--ease-out-expo)}
+.panel-greet .pg-sub{font-size:12px;color:rgba(255,255,255,.48);margin-left:auto;letter-spacing:-.01em}
+
+/* float chips sit clear of the panel's greeting + trust foot */
+.float-chip.one{top:-20px;right:22px}
+.float-chip.two{top:auto;bottom:-42px;left:22px}
+.float-chip.three{top:auto;bottom:-42px;right:36px}
+@media(max-width:520px){.float-chip.three{display:none}}
+
+/* ---------- form states: loading / success / error / empty ---------- */
+.form-status{display:none}
+.form-status.ok,.form-status.warn{display:flex;align-items:flex-start;gap:10px}
+.form-status .fs-ic{flex:none;width:20px;height:20px;margin-top:1px}
+.field input.invalid,.field select.invalid,.field textarea.invalid{
+  border-color:var(--coral);box-shadow:0 0 0 4px rgba(192,67,44,.12)}
+@keyframes shake{10%,90%{transform:translateX(-1px)}30%,70%{transform:translateX(2px)}50%{transform:translateX(-3px)}}
+.field.shake input,.field.shake select,.field.shake textarea{animation:shake .38s ease}
+.review-empty{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:14.5px;padding:8px 0}
+.review-empty svg{width:17px;height:17px;flex:none;color:var(--muted2)}
+
+/* small screens: keep the morning-brief panel legible, never clipped */
+@media(max-width:560px){
+  .panel-top{padding:14px 16px}
+  .panel-greet{padding:13px 16px 2px}
+  .panel-greet .pg-word{font-size:16.5px}
+  .panel-greet .pg-sub{display:none}
+  .panel-body{padding:6px 16px 16px}
+  .panel-foot{padding:13px 16px}
+  .brief-row{font-size:13.6px;gap:10px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .js .stagger>*{opacity:1;transform:none}
+  .btn .spin{animation:none}
+}
