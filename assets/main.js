@@ -183,20 +183,6 @@
     starsViz.querySelectorAll("span").forEach(function (s) { s.classList.add("lit"); });
   }
 
-  /* ---- 3D tilt on cards ---- */
-  if (!reduce && window.matchMedia("(pointer:fine)").matches) {
-    document.querySelectorAll(".tile, .mcard, .tier, .aud-card").forEach(function (card) {
-      card.classList.add("tilt");
-      card.addEventListener("pointermove", function (e) {
-        var r = card.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = "perspective(820px) rotateX(" + (-py * 4.5).toFixed(2) + "deg) rotateY(" + (px * 6).toFixed(2) + "deg) translateY(-5px)";
-      });
-      card.addEventListener("pointerleave", function () { card.style.transform = ""; });
-    });
-  }
-
   /* ---- restaurants / hotels audience toggle ---- */
   var audBtns = document.querySelectorAll(".aud button[data-aud]");
   if (audBtns.length) {
