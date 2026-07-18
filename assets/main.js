@@ -183,20 +183,6 @@
     starsViz.querySelectorAll("span").forEach(function (s) { s.classList.add("lit"); });
   }
 
-  /* ---- 3D tilt on cards ---- */
-  if (!reduce && window.matchMedia("(pointer:fine)").matches) {
-    document.querySelectorAll(".tile, .mcard, .tier, .aud-card").forEach(function (card) {
-      card.classList.add("tilt");
-      card.addEventListener("pointermove", function (e) {
-        var r = card.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width - 0.5;
-        var py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = "perspective(820px) rotateX(" + (-py * 4.5).toFixed(2) + "deg) rotateY(" + (px * 6).toFixed(2) + "deg) translateY(-5px)";
-      });
-      card.addEventListener("pointerleave", function () { card.style.transform = ""; });
-    });
-  }
-
   /* ---- restaurants / hotels audience toggle ---- */
   var audBtns = document.querySelectorAll(".aud button[data-aud]");
   if (audBtns.length) {
@@ -507,31 +493,6 @@
   }
   wireForm("contact-form", "form-status", "New pilot enquiry");
   wireForm("wizard-form", "wiz-status", "Onboarding details");
-
-  /* ---- theme toggle (light / dark) ---- */
-  var themeBtn = document.querySelector(".theme-toggle");
-  if (themeBtn) {
-    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
-    var isDark = function () {
-      var d = document.documentElement.getAttribute("data-theme");
-      if (d === "dark") return true;
-      if (d === "light") return false;
-      return !!(prefersDark && prefersDark.matches);
-    };
-    var sync = function () { themeBtn.setAttribute("aria-pressed", isDark() ? "true" : "false"); };
-    sync();
-    themeBtn.addEventListener("click", function () {
-      var next = isDark() ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      try { localStorage.setItem("misafir-theme", next); } catch (e) {}
-      sync();
-    });
-    if (prefersDark && prefersDark.addEventListener) {
-      prefersDark.addEventListener("change", function () {
-        if (!document.documentElement.getAttribute("data-theme")) sync();
-      });
-    }
-  }
 
   /* ---- year ---- */
   document.querySelectorAll("[data-year]").forEach(function (n) { n.textContent = new Date().getFullYear(); });
