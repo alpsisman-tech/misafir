@@ -508,6 +508,31 @@
   wireForm("contact-form", "form-status", "New pilot enquiry");
   wireForm("wizard-form", "wiz-status", "Onboarding details");
 
+  /* ---- theme toggle (light / dark) ---- */
+  var themeBtn = document.querySelector(".theme-toggle");
+  if (themeBtn) {
+    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+    var isDark = function () {
+      var d = document.documentElement.getAttribute("data-theme");
+      if (d === "dark") return true;
+      if (d === "light") return false;
+      return !!(prefersDark && prefersDark.matches);
+    };
+    var sync = function () { themeBtn.setAttribute("aria-pressed", isDark() ? "true" : "false"); };
+    sync();
+    themeBtn.addEventListener("click", function () {
+      var next = isDark() ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("misafir-theme", next); } catch (e) {}
+      sync();
+    });
+    if (prefersDark && prefersDark.addEventListener) {
+      prefersDark.addEventListener("change", function () {
+        if (!document.documentElement.getAttribute("data-theme")) sync();
+      });
+    }
+  }
+
   /* ---- year ---- */
   document.querySelectorAll("[data-year]").forEach(function (n) { n.textContent = new Date().getFullYear(); });
 })();

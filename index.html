@@ -9,10 +9,10 @@
 <meta property="og:description" content="Reviews, messages, bookings, concierge, social and a weekly owner's brief — the whole guest-facing operation across your restaurants and hotels, in every language. You approve before anything goes live." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-<script>document.documentElement.className+=' js';</script>
+<script>document.documentElement.className+=' js';(function(){try{var t=localStorage.getItem('misafir-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
@@ -20,11 +20,11 @@
 <nav>
   <div class="wrap nav-inner">
     <a href="index.html" class="brand"><span class="mark"><svg viewBox="0 0 28 28" fill="currentColor" aria-hidden="true"><circle cx="14" cy="7.4" r="1.7"/><rect x="13.1" y="8.4" width="1.8" height="4" rx="0.9"/><path d="M5.5 20a8.5 8.5 0 0 1 17 0Z"/><rect x="3.4" y="19.9" width="21.2" height="2.9" rx="1.45"/></svg></span>Misafir</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/></svg></button>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links">
       <a href="how-it-works.html" data-page="how-it-works.html">How it works</a>
       <a href="index.html#features" data-page="index.html">Features</a>
-      <a href="pricing.html" data-page="pricing.html">Pricing</a>
       <a href="contact.html" class="btn">Book a pilot <span class="arr">→</span></a>
     </div>
   </div>
@@ -419,99 +419,14 @@
   </div>
 </section>
 
-<!-- pricing preview -->
-<section id="pricing" class="tint">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow"><span class="dot"></span>Pricing</span>
-      <h2>Begin with a pilot. Grow when it earns it.</h2>
-    </div>
-    <div class="aud pricing-toggle reveal" role="tablist">
-      <button class="on" type="button" data-price="rest"><span class="e">🍷</span> Restaurants</button>
-      <button type="button" data-price="hotel"><span class="e">🏨</span> Hotels</button>
-    </div>
-    <div class="tiers">
-      <div class="tier feature reveal">
-        <div class="rec">Recommended start</div>
-        <h3>Front Desk</h3>
-        <div class="who">Reviews and guest messages — the daily noise, handled.</div>
-        <div class="price-block" data-mode="rest">
-          <div class="price"><span class="from">from</span><span class="amt">£99</span><span class="per">/ mo</span></div>
-          <div class="setup">+ £250 setup · up to 3 venues</div>
-        </div>
-        <div class="price-block" data-mode="hotel" hidden>
-          <div class="price"><span class="amt">£3</span><span class="per">/ room / mo</span></div>
-          <div class="floor">£79/mo minimum</div>
-          <div class="setup">+ £250 setup · per hotel</div>
-        </div>
-        <ul>
-          <li>Google review monitoring &amp; drafted replies</li>
-          <li>WhatsApp &amp; email triage</li>
-          <li>Multilingual, on-brand drafts</li>
-          <li>Urgent-review flagging</li>
-        </ul>
-        <a href="contact.html" class="btn btn-block">Book a pilot</a>
-      </div>
-      <div class="tier reveal d1">
-        <div class="rec alt">More cover</div>
-        <h3>Front of House</h3>
-        <div class="who">Adds reservations and your social presence.</div>
-        <div class="price-block" data-mode="rest">
-          <div class="price"><span class="from">from</span><span class="amt">£199</span><span class="per">/ mo</span></div>
-          <div class="setup">+ £500 setup · up to 3 venues</div>
-        </div>
-        <div class="price-block" data-mode="hotel" hidden>
-          <div class="price"><span class="amt">£5</span><span class="per">/ room / mo</span></div>
-          <div class="floor">£149/mo minimum</div>
-          <div class="setup">+ £500 setup · per hotel</div>
-        </div>
-        <ul>
-          <li>Everything in Front Desk</li>
-          <li>Booking reminders &amp; follow-ups</li>
-          <li>Instagram captions &amp; calendar</li>
-          <li>Event &amp; menu announcements</li>
-        </ul>
-        <a href="contact.html" class="btn btn-ghost btn-block">Start with a pilot</a>
-      </div>
-      <div class="tier reveal d2">
-        <div class="rec alt">The full house</div>
-        <h3>Maison</h3>
-        <div class="who">Everything, plus a weekly read for the owner.</div>
-        <div class="price-block" data-mode="rest">
-          <div class="price"><span class="from">from</span><span class="amt">£349</span><span class="per">/ mo</span></div>
-          <div class="setup">+ £900 setup · multi-venue</div>
-        </div>
-        <div class="price-block" data-mode="hotel" hidden>
-          <div class="price"><span class="amt">£7</span><span class="per">/ room / mo</span></div>
-          <div class="floor">£249/mo minimum</div>
-          <div class="setup">+ £900 setup · per hotel</div>
-        </div>
-        <ul>
-          <li>Everything in Front of House</li>
-          <li>Weekly owner's brief</li>
-          <li>Cross-venue comparison</li>
-          <li>Competitor &amp; market watch</li>
-        </ul>
-        <a href="contact.html" class="btn btn-ghost btn-block">Start with a pilot</a>
-      </div>
-    </div>
-    <div class="reassure reveal">
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Starts with a pilot</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> No long contracts</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg> Nothing sends without your approval</span>
-    </div>
-    <p class="pricing-note">Every venue starts with a short pilot — if it's not pulling its weight, you've lost nothing. <a href="pricing.html">Full pricing &amp; FAQ →</a> · <a href="sample-brief.html">See a sample brief →</a></p>
-  </div>
-</section>
-
 <!-- CTA -->
 <section style="padding:40px 0 90px">
   <div class="cta reveal">
-    <h2>See it run on <em style="color:var(--mint)">your</em> place first.</h2>
+    <h2>See it run on <em>your</em> place first.</h2>
     <p>We'll set it up for one restaurant or hotel and send you a week of real drafts and a brief. If it's not pulling its weight, you've lost nothing.</p>
     <div class="hero-cta">
-      <a href="contact.html" class="btn btn-lg" style="background:#fff;color:var(--brand-ink)">Book a pilot <span class="arr">→</span></a>
-      <a href="pricing.html" class="btn btn-ghost btn-lg">See pricing</a>
+      <a href="contact.html" class="btn btn-lg">Book a pilot <span class="arr">→</span></a>
+      <a href="sample-brief.html" class="btn btn-ghost btn-lg">See a sample brief</a>
     </div>
   </div>
 </section>
@@ -529,7 +444,6 @@
         <h4>Product</h4>
         <a href="how-it-works.html">How it works</a>
         <a href="index.html#features">Features</a>
-        <a href="pricing.html">Pricing</a>
         <a href="sample-brief.html">Sample brief</a>
       </div>
       <div class="col">
